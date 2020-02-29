@@ -99,6 +99,7 @@ Ex: HBase, Cassandra
 
 
 
+### SQL x NOSQL
 
 Conceito de persistência Poliglota:
  - Perfil de usuário: não tem tanto acesso e é tabulado: Usa BD relacional
