@@ -62,11 +62,31 @@ Cada documento pode ser associado a uma linha do banco SQL
 #### Banco de grafos
 Ex: Neo4J
 
+Utiliza conceitos de grafos armazenados em disco
+É um modelo mais natural para uma série de aplicações como redes sociais
+Tem vantagens de ser uma área bem explorada da computação como algoritmos
+- Caminho minimo/máximo
+- Indetificação de ciclos
+- Busca em profundidade
+  
 ##### Caracteristicas:
+- Modelo onde a escala chegou depois (neo4j suporta). Em geral usa sharding
+- Entrega um modelo ACID
+- ENtrega por padrão soluções de algoritmos de graphos
 
 ##### Quando utilizar
-
+- Problemas de logistica
+- Qualquer problema onde grafo por ser aplicado
+  
 ##### Evitar utilizar
+
+
+
+
+
+
+
+
 
 
 Conceito de persistência Poliglota:
