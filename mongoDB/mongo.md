@@ -69,5 +69,12 @@ Usado em:
 #### Find with regex
 > db.italians.find({"$and": [{"firstname": /Mama/i}, {"surname": /mia/gi}]})
 
+#### Cursor
+> var cursor = db.italians.find();
+```
+cursor.forEach(item => {
+    print(item.firstname)
+});
+``` 
 
 
