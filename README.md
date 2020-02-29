@@ -14,17 +14,23 @@ Tipos de Bancos NOSQL
 - Chave-Valor
 Modelo mais simples de banco de dados  muito utilizado para alta performance
 Utiliza o conceito mapeamento hash distribuído
+Mapeamento de hash distribuído (Consistent Hash)
+Obs: Nunca utilizar quando precisa busca por valores diferentes da chave
 
-  
+Caracteristicas:
+- Alta escalabilidade
+- Alta produtividade (API Simples)
+- Alta performance (geralmente opera em memoria)
+- Baixa complexidade
+- Schemaless
+- Funcionalidades mais limitadas (chave/valor)
+- Altamente particionavel
 
 
 
 
 
-
-
-
-Persistência Poliglota:
+Conceito de persistência Poliglota:
  - Perfil de usuário: não tem tanto acesso e é tabulado: Usa BD relacional
  - Foto: Precisa de leitura e escrita rápida, usa banco chave/valor por ex.
 
