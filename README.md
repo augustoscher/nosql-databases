@@ -11,7 +11,7 @@ Schema on read (preciso saber o meu schema ao ler os dados, não na escrita, com
 
 ### Tipos de Bancos NOSQL
 
-#### Chave-Valor
+#### 1. Chave-Valor
 Ex: DynamoDB, Redis
 
 Modelo mais simples de banco de dados  muito utilizado para alta performance
@@ -33,7 +33,7 @@ Mapeamento de hash distribuído (Consistent Hash)
 - Não é uma boa quando precisa de transações
 - Não é uma boa quando precisa busca por valores diferentes da chave
 
-#### Documentos
+#### 2. Documentos
 Ex: MongoDB, CouchDB
 
 Tem o documento como centro conceitual do banco
@@ -59,7 +59,7 @@ Cada documento pode ser associado a uma linha do banco SQL
 - Não usar se precisar de transações
 
 
-#### Banco de grafos
+#### 3. Banco de grafos
 Ex: Neo4J
 
 Utiliza conceitos de grafos armazenados em disco
@@ -81,10 +81,21 @@ Tem vantagens de ser uma área bem explorada da computação como algoritmos
 ##### Evitar utilizar
 
 
+#### 4. Familia de colunas
+Ex: HBase, Cassandra
 
+##### Caracteristicas:
+- Em geral, desenhados para alta disponibilidade
+- Fazer queries é mais simples para quem conhece RDBMS
+- Modelos parecidos com bancos SQL
 
+##### Utilizar:
+- Onde demanda muita escala
+- Soluções analisticas
+- Contabilização de visitantes
 
-
+##### Evitar:
+- Pouca escala
 
 
 
