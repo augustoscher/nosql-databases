@@ -1,29 +1,20 @@
-### Redis
-Remote Dictinoary Server
-É basicamente um Hashmap Database, com estrutura adicionais como listas, mapas e conjuntos
-Tipo: Key-Value
-Uma tabela hash (hash table) é um dos conceitos básicos de um banco chave-valor;
-A maioria dos bancos implementa um dicionario (tabela hash) distribuido;
+### Redinsgo
+Notes:
+- Node.js should be installed.
+- Local Redis instance should be running
 
-Usado em:
-- Cache de dados
-- Publisher/Subscriber e Filas
-- Contadores (acessos a sites, clicks)
-- Controle de rate limit de API (camada de redis em cima da API)
+#### Setup
+1. Running Redis container:
+   > docker run -d -p 6379:6379 --name myredis redis
+   
+2. Clone repository:
+   > git clone git@github.com:augustoscher/nosql-databases.git
 
-#### Setup with Docker
-Docker container:
-```docker run -d -p 6379:6379 --name myredis redis```
+3. Install dependencies:
+   > cd nosql-databases && cd redis && npm install
 
-Optional: 
-Running redis CLI in the container:
-```docker exec -it myredis bash```
+4. Run
+   > npm run redinsgo
 
-Run:
-```redis-cli```
 
-Test:
-```ping``` 
-
-#### Redinsgo
 
