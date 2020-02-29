@@ -21,22 +21,20 @@ const main = () => {
     console.log('connected');
   });
 
-  // const users = getUsers();
-  // client.hmset(USERS_KEY, users);
-
-  client.hmset('users', 'portugues', 'ingles', 'espanhol', 'alemao');
-  client.hgetall(USERS_KEY, function (err, object) {
+  // const userTest = ['user:01', {name: 'user01', bcartela: 'cartela:01'}]
+  client.hmset('user:01', 'name', 'user01', 'bcartela', 'cartela:01', 'bscore', 'score:01' );
+  client.hgetall('user:01', function (err, object) {
     console.log(object);
   });
 
-  console.log();
-  client.sadd(['tags', 'angularjs', 'angularjs', 'backbonejs', 'emberjs'], function (err, reply) {
-    console.log(reply);
-  });
+  // console.log();
+  // client.sadd(['tags', 'angularjs', 'angularjs', 'backbonejs', 'emberjs'], function (err, reply) {
+  //   console.log(reply);
+  // });
 
-  client.smembers('tags', function (err, reply) {
-    console.log(reply);
-  });
+  // client.smembers('tags', function (err, reply) {
+  //   console.log(reply);
+  // });
 
 }
 

@@ -8,10 +8,17 @@ Caracteristicas
 - Qualquer caractere UTF-8 pode ser usado exceto /0
 - É case-sensitive
 - Chaves não podem ser duplicadas
-- 
+- Schemas diferentes entre cada documento.
+- Uma collection é um grupo de documentos, A coleção pode ser pensada como uma tabela em banco SQL
+
+Tipos de dados:
+- Data
+- Tipos numericos
+- Timestamp
+- Minkey/Maxkey
+- Boolean
+- Array 
+- Binarios
+- ObjectId
 
 Usado em:
-- Cache de dados
-- Publisher/Subscriber e Filas
-- Contadores (acessos a sites, clicks)
-- Controle de rate limit de API (camada de redis em cima da API)
