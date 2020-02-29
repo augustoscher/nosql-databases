@@ -51,3 +51,23 @@ Usado em:
 > db.italians.update({"_id": ObjectId("5e5aa7f771cd3d6a94e8b54c")}, { $push: { "favFruits": "Morango"}});
 > db.italians.update({"_id": ObjectId("5e5aa7f771cd3d6a94e8b54c")}, { $push: { "top10": { $each: ["test", "test2"]} }});
 
+#### Get timestamp of document
+> ObjectId("5e5aa7f771cd3d6a94e8b54c").getTimestamp() //ISODate("2020-02-29T18:05:43Z")
+
+#### Return only some attrs
+> db.italians.find({"_id": ObjectId("5e5aa7f771cd3d6a94e8b54c")}, {"firstname": 1, "email": 1});
+
+#### Find italians where age is in 18 and 19
+> db.italians.find({"age": {"$in": [18, 19]}})
+
+#### Return all where age mod 17 == 0
+> db.italians.find({"age": {"$mod": [17, 0]}})
+
+#### Return all where age greather then 18 and blood type = O-
+> db.italians.find({"$and": [{"age": {"$gt": 18}}, {"bloodType": "O-"}]})
+
+#### Find with regex
+> db.italians.find({"$and": [{"firstname": /Mama/i}, {"surname": /mia/gi}]})
+
+
+
