@@ -34,18 +34,24 @@ const main = () => {
     console.error(error);
   });
 
-  client.on('connect', () => {
-    console.log('connected');
-  });
-
   const users = getUsers();
   users.forEach(user => {
     client.hmset(user.key, 'name', user.name, 'bcartela', user.cartelaKey, 'bscore', user.scoreKey);
-    client.sadd(user.cartelaKey, user.cartela)
+    client.sadd(user.cartelaKey, user.cartela);
+    client.set(user.scoreKey, 0);
   });
 
-  // client.hgetall('user:01', function (err, object) {
-  //   console.log(object);
+  client.incr('score:32');
+
+  users.forEach(user => {
+    client.hgetall(user.key, function (err, object) {
+
+      console.log(object);
+    });
+  })
+
+  // client.smembers('tags', function (err, reply) {
+  //   console.log(reply);
   // });
 
   // console.log();
@@ -53,9 +59,9 @@ const main = () => {
   //   console.log(reply);
   // });
 
-  // client.smembers('tags', function (err, reply) {
-  //   console.log(reply);
-  // });
+
+  //Exit when some user wins the bingo
+  client.quit();
 }
 
 main();
