@@ -1,15 +1,25 @@
 const redis = require("redis");
-const USERS_KEY = 'users';
+
+const randomArray = (length, max) => {
+  const nums = new Set();
+  while(nums.size < length) {
+    nums.add(Math.floor(Math.random() * max) + 1);
+  }
+  return [...nums];
+}
 
 const getUsers = () => {
   let users = [];
   for (let i = 0; i < 50; i++) {
     let id = i+1;
+    const cartela = randomArray(15, 99);
+
     const user = {
-      key: `user:0${id}`,
-      name: `user0${id}`,
-      cartela: `cartela:0${id}`,
-      score: `score:0${id}`,
+      key: `user:${id}`,
+      name: `user${id}`,
+      cartelaKey: `cartela:${id}`,
+      cartela,
+      scoreKey: `score:${id}`,
     }
     users.push(user);
   }
@@ -30,12 +40,13 @@ const main = () => {
 
   const users = getUsers();
   users.forEach(user => {
-    client.hmset(user.key, 'name', user.name, 'bcartela', user.cartela, 'bscore', user.score);
+    client.hmset(user.key, 'name', user.name, 'bcartela', user.cartelaKey, 'bscore', user.scoreKey);
+    client.sadd(user.cartelaKey, user.cartela)
   });
 
-  client.hgetall('user:01', function (err, object) {
-    console.log(object);
-  });
+  // client.hgetall('user:01', function (err, object) {
+  //   console.log(object);
+  // });
 
   // console.log();
   // client.sadd(['tags', 'angularjs', 'angularjs', 'backbonejs', 'emberjs'], function (err, reply) {
