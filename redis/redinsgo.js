@@ -4,7 +4,14 @@ const USERS_KEY = 'users';
 const getUsers = () => {
   let users = [];
   for (let i = 0; i < 50; i++) {
-    users.push(`user:0${i+1}`);
+    let id = i+1;
+    const user = {
+      key: `user:0${id}`,
+      name: `user0${id}`,
+      cartela: `cartela:0${id}`,
+      score: `score:0${id}`,
+    }
+    users.push(user);
   }
   return users;
 }
@@ -21,8 +28,10 @@ const main = () => {
     console.log('connected');
   });
 
-  // const userTest = ['user:01', {name: 'user01', bcartela: 'cartela:01'}]
-  client.hmset('user:01', 'name', 'user01', 'bcartela', 'cartela:01', 'bscore', 'score:01' );
+  const users = getUsers();
+  users.forEach(user => {
+    client.hmset(user.key, 'name', user.name, 'bcartela', user.cartela, 'bscore', user.score);
+  });
   client.hgetall('user:01', function (err, object) {
     console.log(object);
   });
