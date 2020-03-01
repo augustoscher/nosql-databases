@@ -32,6 +32,7 @@ const main = () => {
   users.forEach(user => {
     client.hmset(user.key, 'name', user.name, 'bcartela', user.cartela, 'bscore', user.score);
   });
+
   client.hgetall('user:01', function (err, object) {
     console.log(object);
   });
@@ -44,7 +45,6 @@ const main = () => {
   // client.smembers('tags', function (err, reply) {
   //   console.log(reply);
   // });
-
 }
 
 main();
