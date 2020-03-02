@@ -9,9 +9,9 @@ Notes:
 2. Clone repository:
    > git clone git@github.com:augustoscher/nosql-databases.git
 
-3. Install dependencies:
-   > cd nosql-databases && cd mongoDB
-   > npm install  
+3. Connection on docker container if necessary:
+   > docker exec -it mongodb bash
+   > mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin
 
 #### Running
 1. Running...
