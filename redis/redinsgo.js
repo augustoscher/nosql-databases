@@ -1,67 +1,53 @@
 const redis = require("redis");
+const { promisify } = require("util");
+const util = require('./util');
 
-const randomArray = (length, max) => {
-  const nums = new Set();
-  while(nums.size < length) {
-    nums.add(Math.floor(Math.random() * max) + 1);
-  }
-  return [...nums];
-}
+const client = redis.createClient();
+const getAsync = promisify(client.get).bind(client);
 
-const getUsers = () => {
-  let users = [];
-  for (let i = 0; i < 50; i++) {
-    let id = i+1;
-    const cartela = randomArray(15, 99);
-
-    const user = {
-      key: `user:${id}`,
-      name: `user${id}`,
-      cartelaKey: `cartela:${id}`,
-      cartela,
-      scoreKey: `score:${id}`,
+const getWinner = async users => {
+  for(let i = 0; i < users.length; i++) {
+    const score = await getAsync(users[i].scoreKey);
+    if (score >= 15) {
+      return users[i];
     }
-    users.push(user);
   }
-  return users;
-}
+};
 
-const main = () => {
-  console.log("Hello Redinsgo...")
-  const client = redis.createClient();
+const main = async () => {
+  console.log("Hello Redinsgo...");
 
   client.on("error", error => {
     console.error(error);
   });
 
-  const users = getUsers();
+  const users = util.getUsers();
   users.forEach(user => {
-    client.hmset(user.key, 'name', user.name, 'bcartela', user.cartelaKey, 'bscore', user.scoreKey);
+    client.hmset(user.key, "name", user.name, "bcartela", user.cartelaKey, "bscore", user.scoreKey);
     client.sadd(user.cartelaKey, user.cartela);
     client.set(user.scoreKey, 0);
   });
 
-  client.incr('score:32');
+  //set stones
+  
+  //test score
+  for (let i = 0; i < 15; i++) {
+    client.incr("score:10");
+  }
 
-  users.forEach(user => {
-    client.hgetall(user.key, function (err, object) {
+  const winner = await getWinner(users);
 
-      console.log(object);
-    });
-  })
 
-  // client.smembers('tags', function (err, reply) {
-  //   console.log(reply);
-  // });
+  console.log(winner);
+
 
   // console.log();
   // client.sadd(['tags', 'angularjs', 'angularjs', 'backbonejs', 'emberjs'], function (err, reply) {
   //   console.log(reply);
   // });
 
-
   //Exit when some user wins the bingo
   client.quit();
-}
+};
 
 main();
