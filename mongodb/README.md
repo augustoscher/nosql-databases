@@ -63,6 +63,11 @@ WriteResult({ "nInserted" : 1 })
 ### 2. Exercício - Mama mia!
 
 #### 1. Liste/Conte todas as pessoas que tem exatamente 99 anos. Você pode usar um count para indicar a quantidade.
+> db.italians.find({age: 99}).count();
+```javascript
+0
+```
+
 #### 2. Identifique quantas pessoas são elegíveis atendimento prioritário (pessoas com mais de 65 anos)
 #### 3. Identifique todos os jovens (pessoas entre 12 a 18 anos).
 #### 4. Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
