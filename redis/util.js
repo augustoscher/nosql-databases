@@ -24,4 +24,8 @@ const getUsers = () => {
   return users;
 };
 
-module.exports = { getUsers, randomArray}
+const getStones = () => {
+  return [...randomArray(100, 100)]
+}
+
+module.exports = { getUsers, getStones }
