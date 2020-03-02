@@ -11,6 +11,7 @@ const hgetallAsync = promisify(client.hgetall).bind(client);
 const STONES_KEY = 'stones';
 
 const setUp = users => {
+  client.FLUSHDB();
   users.forEach(user => {
     client.hmset(user.key, "name", user.name, "bcartela", user.cartelaKey, "bscore", user.scoreKey);
     client.sadd(user.cartelaKey, user.cartela);
@@ -19,10 +20,15 @@ const setUp = users => {
   client.sadd(STONES_KEY, util.getStones());
 };
 
+const getScore = async key => {
+  const score = await getAsync(key);
+  return score;
+}
+
 const getWinner = async (turns, users) => {
   if (turns >= 15 ) {
     for(let i = 0; i < users.length; i++) {
-      const score = await getAsync(users[i].scoreKey);
+      const score = await getScore(users[i].scoreKey);
       if (score >= 15) {
         return users[i];
       }
@@ -31,14 +37,29 @@ const getWinner = async (turns, users) => {
   return null;
 };
 
+const applyHitters = async (users, stone) => {
+  let hitters = '';
+  for(let i = 0; i < users.length; i++) {
+    const cartela = await smembersAsync(users[i].cartelaKey);
+    if (cartela.includes(stone)) {
+      client.incr(users[i].scoreKey);
+      const score = await getScore(users[i].scoreKey);
+      if (hitters.length > 0) {
+        hitters = hitters.concat(`, ${users[i].name} - ${score}pts`)
+      } else {
+        hitters = hitters.concat(`${users[i].name} - ${score}pts`);
+      }
+    }
+  }
+  return hitters;
+}
+
 const isAvaiableStones = async () => {
   const stones = await smembersAsync(STONES_KEY);
   return stones.length > 0;
 }
 
 const main = async () => {
-  console.log("Hello Redinsgo...");
-
   const users = util.getUsers();
   setUp(users);
 
@@ -46,15 +67,11 @@ const main = async () => {
   do {
     turns += 1;
     const stone = await spopAsync(STONES_KEY);
+    const hitters = await applyHitters(users, stone);
 
     console.log(`${turns}ª jogada...`)
     console.log(`Sorteada pedra nº.: ${stone}`);
-
-    if (turns >= 16) {
-      for (let i = 0; i < 15; i++) {
-        client.incr("score:10");
-      }
-    }
+    console.log(`Acertadores: ${hitters}`);
 
     console.log();
     winner = await getWinner(turns, users);
@@ -64,7 +81,7 @@ const main = async () => {
   if (winner) {
     console.log();
     const redisWinner = await hgetallAsync(winner.key);
-    const score = await getAsync(winner.scoreKey)
+    const score = await getScore(winner.scoreKey)
     console.log(`O vencedor é: ${redisWinner.name} com ${score} pontos!`)
   } else {
     console.log('Todas pedras foram sorteadas, ninguém ganhou...');
