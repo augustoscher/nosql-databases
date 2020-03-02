@@ -16,6 +16,7 @@ Notes:
 
 #### Running
 1. Running Redinsgo project:
+
    > npm run redinsgo
 
 ![image](https://user-images.githubusercontent.com/9935397/75674990-01362780-5c65-11ea-814c-b67c4ed347ad.png)
