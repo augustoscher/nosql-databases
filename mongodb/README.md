@@ -69,6 +69,7 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 2. Identifique quantas pessoas são elegíveis atendimento prioritário (pessoas com mais de 65 anos)
+
 #### 3. Identifique todos os jovens (pessoas entre 12 a 18 anos).
 #### 4. Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
 #### 5. Liste/Conte todas as pessoas acima de 60 anos que tenham gato
