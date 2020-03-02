@@ -12,10 +12,13 @@ Notes:
 
 3. Install dependencies:
    > cd nosql-databases && cd redis
-   > npm install
+   > npm install  
 
-4. Run
-   > npm run redinsgo
+#### Running
+> npm run redinsgo
+
+![image](https://user-images.githubusercontent.com/9935397/75674990-01362780-5c65-11ea-814c-b67c4ed347ad.png)
+![image](https://user-images.githubusercontent.com/9935397/75675080-2e82d580-5c65-11ea-8742-b7dcb5a6df95.png)
 
 
 
