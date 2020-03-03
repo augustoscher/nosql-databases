@@ -75,7 +75,13 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 3. Identifique todos os jovens (pessoas entre 12 a 18 anos).
+> db.italians.find({"age" : {"$gte" : 12, "$lte" : 18}})
+```
+883
+```
+
 #### 4. Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
+
 #### 5. Liste/Conte todas as pessoas acima de 60 anos que tenham gato
 #### 6. Liste/Conte todos os jovens com cachorro
 #### 7. Utilizando o $where, liste todas as pessoas que tem gato e cachorro
