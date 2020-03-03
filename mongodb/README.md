@@ -81,6 +81,20 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 4. Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
+> db.italians.find({cat: { $exists: true }}).count();
+```
+5995
+```
+> db.italians.find({dog: { $exists: true }}).count();
+```
+3937
+```
+> db.italians.find({$and: [{ cat: { $exists: false }}, { dog: { $exists: false }}]}).count()
+```
+2420
+```
+
+
 
 #### 5. Liste/Conte todas as pessoas acima de 60 anos que tenham gato
 #### 6. Liste/Conte todos os jovens com cachorro
