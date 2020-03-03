@@ -107,9 +107,13 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 7. Utilizando o $where, liste todas as pessoas que tem gato e cachorro
-
+> db.italians.find({ $where: "this.cat != null && this.dog != null" }).count()
+```
+2352
+```
 
 #### 8. Liste todas as pessoas mais novas que seus respectivos gatos.
+
 #### 9. Liste as pessoas que tem o mesmo nome que seu bichano (gatou ou cachorro)
 #### 10. Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo
 #### 11. Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificado do mongo (ObjectId)
