@@ -94,11 +94,21 @@ WriteResult({ "nInserted" : 1 })
 2420
 ```
 
-
-
 #### 5. Liste/Conte todas as pessoas acima de 60 anos que tenham gato
+> db.italians.find({$and: [{ cat: { $exists: true }}, { age: { $gte: 60 }}]}).count()
+```
+1526
+```
+
 #### 6. Liste/Conte todos os jovens com cachorro
+> db.italians.find({$and: [{ age: { $gte: 12, $lte: 18 }}, { dog: { $exists: true }}]}).count()
+```
+340
+```
+
 #### 7. Utilizando o $where, liste todas as pessoas que tem gato e cachorro
+
+
 #### 8. Liste todas as pessoas mais novas que seus respectivos gatos.
 #### 9. Liste as pessoas que tem o mesmo nome que seu bichano (gatou ou cachorro)
 #### 10. Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo
