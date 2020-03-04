@@ -119,8 +119,13 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 9. Liste as pessoas que tem o mesmo nome que seu bichano (gatou ou cachorro)
+> db.italians.find({$or: [{$and: [{cat: {$exists: true}}, {$where: "this.firstname == this.cat.name"}]}, {$and: [{dog: {$exists: true}}, {$where: "this.firstname == this.dog.name"}]}]}).count();
+```
+102
+```
 
 #### 10. Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo
+
 #### 11. Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificado do mongo (ObjectId)
 #### 12. Quais são as 5 pessoas mais velhas com sobrenome Rossi?
 #### 13. Crie um italiano que tenha um leão como animal de estimação. Associe um nome e idade ao bichano
