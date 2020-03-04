@@ -113,6 +113,10 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 8. Liste todas as pessoas mais novas que seus respectivos gatos.
+> db.italians.find({ $and: [{ cat: { $exists: true }}, { $where: "this.age < this.cat.age" }]}).count()
+```
+635
+```
 
 #### 9. Liste as pessoas que tem o mesmo nome que seu bichano (gatou ou cachorro)
 
