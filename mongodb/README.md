@@ -125,6 +125,35 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 10. Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo
+> db.italians.find({"bloodType": "O-"}, {"firstname":1, "surname":1, "_id": 0}).count();
+```
+1309
+```
+
+> db.italians.find({"bloodType": "O-"}, {"firstname":1, "surname":1, "_id": 0});
+```javascript
+{ "firstname" : "Patrizia", "surname" : "Caputo" }
+{ "firstname" : "Maurizio", "surname" : "Serra" }
+{ "firstname" : "Gabiele", "surname" : "Amato" }
+{ "firstname" : "Angela", "surname" : "Bianchi" }
+{ "firstname" : "Dario", "surname" : "Gentile" }
+{ "firstname" : "Tiziana", "surname" : "Montanari" }
+{ "firstname" : "Elisabetta", "surname" : "Negri" }
+{ "firstname" : "Daniele", "surname" : "Sartori" }
+{ "firstname" : "Simone", "surname" : "Amato" }
+{ "firstname" : "Federico", "surname" : "Bernardi" }
+{ "firstname" : "Angela", "surname" : "Monti" }
+{ "firstname" : "Cristian", "surname" : "Messina" }
+{ "firstname" : "Gianni", "surname" : "Costa" }
+{ "firstname" : "Elisabetta", "surname" : "Amato" }
+{ "firstname" : "Giacomo", "surname" : "Lombardi" }
+{ "firstname" : "Salvatore", "surname" : "Damico" }
+{ "firstname" : "Daniela", "surname" : "Mancini" }
+{ "firstname" : "Rita", "surname" : "Sanna" }
+{ "firstname" : "Simona", "surname" : "Marino" }
+{ "firstname" : "Salvatore", "surname" : "Conte" }
+Type "it" for more
+```
 
 #### 11. Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificado do mongo (ObjectId)
 #### 12. Quais são as 5 pessoas mais velhas com sobrenome Rossi?
