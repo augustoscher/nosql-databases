@@ -191,3 +191,5 @@ Type "it" for more
 #### 18. Utilizando aggregate framework, faça uma lista de nomes única de nomes. Faça isso usando apenas o primeiro nome
 #### 19. Agora faça a mesma lista do item acima, considerando nome completo.
 #### 20. Procure pessoas que gosta de Banana ou Maçã, tenham cachorro ou gato, mais de 20 e menos de 60 anos.
+
+### 3. Exercício - Stockbrokers
