@@ -156,8 +156,34 @@ Type "it" for more
 ```
 
 #### 11. Projete apenas os animais dos italianos. Devem ser listados os animais com nome e idade. Não mostre o identificado do mongo (ObjectId)
+> db.italians.find({$or: [{ cat: { $exists: true }}, { dog: { $exists: true }}]}, {"cat.name":1, "cat.age":1, "dog.name": 1, "dog.age": 1, "_id": 0});
+```javascript
+{ "cat" : { "name" : "Barbara", "age" : 2 }, "dog" : { "name" : "Mirko", "age" : 15 } }
+{ "cat" : { "name" : "Salvatore", "age" : 10 } }
+{ "cat" : { "name" : "Vincenzo", "age" : 5 } }
+{ "dog" : { "name" : "Vincenzo", "age" : 5 } }
+{ "dog" : { "name" : "Emanuele", "age" : 6 } }
+{ "dog" : { "name" : "Lorenzo", "age" : 7 } }
+{ "cat" : { "name" : "Lorenzo", "age" : 9 }, "dog" : { "name" : "Stefano", "age" : 2 } }
+{ "cat" : { "name" : "Maria", "age" : 3 } }
+{ "dog" : { "name" : "Riccardo", "age" : 14 } }
+{ "cat" : { "name" : "Giorgia", "age" : 5 } }
+{ "cat" : { "name" : "Giorgio", "age" : 6 } }
+{ "dog" : { "name" : "Martina", "age" : 4 } }
+{ "cat" : { "name" : "Giusy", "age" : 13 } }
+{ "cat" : { "name" : "Mauro", "age" : 3 }, "dog" : { "name" : "Chiara", "age" : 0 } }
+{ "cat" : { "name" : "Mirko", "age" : 15 } }
+{ "cat" : { "name" : "Andrea", "age" : 15 }, "dog" : { "name" : "Giovanni", "age" : 10 } }
+{ "cat" : { "name" : "Monica", "age" : 6 }, "dog" : { "name" : "Filipo", "age" : 17 } }
+{ "dog" : { "name" : "Serena", "age" : 7 } }
+{ "cat" : { "name" : "Simone", "age" : 17 } }
+Type "it" for more
+```
+
 #### 12. Quais são as 5 pessoas mais velhas com sobrenome Rossi?
+
 #### 13. Crie um italiano que tenha um leão como animal de estimação. Associe um nome e idade ao bichano
+
 #### 14. Infelizmente o Leão comeu o italiano. Remova essa pessoa usando o Id.
 #### 15. Passou um ano. Atualize a idade de todos os italianos e dos bichanos em 1.
 #### 16. O Corona Vírus chegou na Itália e misteriosamente atingiu pessoas somente com gatos e de 66 anos. Remova esses italianos.
