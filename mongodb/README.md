@@ -181,6 +181,14 @@ Type "it" for more
 ```
 
 #### 12. Quais são as 5 pessoas mais velhas com sobrenome Rossi?
+> db.italians.find({surname: "Rossi"},{firstname:1, age:1}).sort({age: -1}).limit(5)
+```javascript
+{ "_id" : ObjectId("5e5d964053508b2f1cdcee24"), "firstname" : "Vincenzo", "age" : 79 }
+{ "_id" : ObjectId("5e5d963f53508b2f1cdceb07"), "firstname" : "Sergio", "age" : 78 }
+{ "_id" : ObjectId("5e5d963b53508b2f1cdcd77e"), "firstname" : "Carlo", "age" : 77 }
+{ "_id" : ObjectId("5e5d963f53508b2f1cdce9d5"), "firstname" : "Antonio", "age" : 76 }
+{ "_id" : ObjectId("5e5d963f53508b2f1cdced9d"), "firstname" : "Paolo", "age" : 76 }
+```
 
 #### 13. Crie um italiano que tenha um leão como animal de estimação. Associe um nome e idade ao bichano
 
