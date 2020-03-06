@@ -401,6 +401,16 @@ results in mongodb/exe2-item19.js
 ```
 
 #### 20. Procure pessoas que gosta de Banana ou Maçã, tenham cachorro ou gato, mais de 20 e menos de 60 anos.
+```javascript
+db.italians.find({"$and": [
+  {"$or": [{ cat: { $exists: true }}, { dog: { $exists: true }}]},
+  {"age": {"$gt": 20, "$lt": 60 }},
+  {"$and": [{"favFruits": {"$exists": true}}, {"favFruits": ["Banana", "Maçã"]}]}
+]}).count();
+```
 
+```
+13
+```
 
 ### 3. Exercício - Stockbrokers
