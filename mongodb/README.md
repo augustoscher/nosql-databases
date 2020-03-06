@@ -204,9 +204,30 @@ WriteResult({ "nInserted" : 1 })
 ```
 
 #### 14. Infelizmente o Leão comeu o italiano. Remova essa pessoa usando o Id.
+> db.italians.find({"lion.name": "Simba"})
+```javascript
+{
+   "_id":ObjectId("5e61ab404b9ddc88370d544e"),
+   "firstname":"Italian",
+   "surname":"italian2",
+   "username":"Mamamia",
+   "email":"italian.mamamia@gmail.com",
+   "registerDate": ISODate("2020-03-06T01:45:36.224Z"),
+   "lion":{
+      "name":"Simba",
+      "age":10
+   }
+}
 
+``` 
+
+> db.italians.remove({"_id": ObjectId("5e61ab404b9ddc88370d544e")})
+```
+WriteResult({ "nRemoved" : 1 })
+```
 
 #### 15. Passou um ano. Atualize a idade de todos os italianos e dos bichanos em 1.
+
 #### 16. O Corona Vírus chegou na Itália e misteriosamente atingiu pessoas somente com gatos e de 66 anos. Remova esses italianos.
 #### 17. Utilizando o framework agregate, liste apenas as pessoas com nomes iguais a sua respectiva mãe e que tenha gato ou cachorro.
 #### 18. Utilizando aggregate framework, faça uma lista de nomes única de nomes. Faça isso usando apenas o primeiro nome
