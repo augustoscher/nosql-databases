@@ -242,7 +242,13 @@ WriteResult({ "nMatched" : 4039, "nUpserted" : 0, "nModified" : 4039 })
 ```
 
 #### 16. O Corona Vírus chegou na Itália e misteriosamente atingiu pessoas somente com gatos e de 66 anos. Remova esses italianos.
+> db.italians.remove({"$and": [{"cat": {"$exists": true}}, {"age": 66}]})
+```
+WriteResult({ "nRemoved" : 91 })
+```
+
 #### 17. Utilizando o framework agregate, liste apenas as pessoas com nomes iguais a sua respectiva mãe e que tenha gato ou cachorro.
+
 #### 18. Utilizando aggregate framework, faça uma lista de nomes única de nomes. Faça isso usando apenas o primeiro nome
 #### 19. Agora faça a mesma lista do item acima, considerando nome completo.
 #### 20. Procure pessoas que gosta de Banana ou Maçã, tenham cachorro ou gato, mais de 20 e menos de 60 anos.
