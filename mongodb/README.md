@@ -191,8 +191,21 @@ Type "it" for more
 ```
 
 #### 13. Crie um italiano que tenha um leão como animal de estimação. Associe um nome e idade ao bichano
+> db.italians.insert({
+>   firstname: "Italian",
+>   surname: "italian2",
+>   username: "Mamamia",
+>   email: "italian.mamamia@gmail.com",
+>   registerDate: new Date(),
+>   lion: {name: "Simba", age: 10}
+> });
+```
+WriteResult({ "nInserted" : 1 })
+```
 
 #### 14. Infelizmente o Leão comeu o italiano. Remova essa pessoa usando o Id.
+
+
 #### 15. Passou um ano. Atualize a idade de todos os italianos e dos bichanos em 1.
 #### 16. O Corona Vírus chegou na Itália e misteriosamente atingiu pessoas somente com gatos e de 66 anos. Remova esses italianos.
 #### 17. Utilizando o framework agregate, liste apenas as pessoas com nomes iguais a sua respectiva mãe e que tenha gato ou cachorro.
