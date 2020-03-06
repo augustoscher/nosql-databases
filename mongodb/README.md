@@ -413,3 +413,13 @@ db.italians.find({"$and": [
 ```
 
 ### 3. Exercício - Stockbrokers
+
+#### 1. Liste as ações com profit acima de 0.5 (limite a 10 o resultado)
+#### 2. Liste as ações com perdas (limite a 10 novamente)
+#### 3. Liste as 10 ações mais rentáveis
+#### 4. Qual foi o setor mais rentável?
+#### 5. Ordene as ações pelo profit e usando um cursor, liste as ações.
+#### 6. Renomeie o campo “Profit Margin” para apenas “profit”.
+#### 7. Agora liste apenas a empresa e seu respectivo resultado
+#### 8. Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria?
+#### 9. Liste as ações agrupadas por setor
