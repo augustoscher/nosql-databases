@@ -408,7 +408,6 @@ db.italians.find({"$and": [
   {"$and": [{"favFruits": {"$exists": true}}, {"favFruits": ["Banana", "Maçã"]}]}
 ]}).count();
 ```
-
 ```
 13
 ```
