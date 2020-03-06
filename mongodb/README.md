@@ -227,6 +227,19 @@ WriteResult({ "nRemoved" : 1 })
 ```
 
 #### 15. Passou um ano. Atualize a idade de todos os italianos e dos bichanos em 1.
+> db.italians.update({}, {"$inc": {"age": 1}}, {multi: true});
+```
+WriteResult({ "nMatched" : 10000, "nUpserted" : 0, "nModified" : 10000 })
+```
+> db.italians.update({"cat": {$exists: true}}, {$inc: {"cat.age": 1}}, {multi: true})
+```
+WriteResult({ "nMatched" : 6040, "nUpserted" : 0, "nModified" : 6040 })
+```
+
+> db.italians.update({"dog": {$exists: true}}, {$inc: {"dog.age": 1}}, {multi: true})
+```
+WriteResult({ "nMatched" : 4039, "nUpserted" : 0, "nModified" : 4039 })
+```
 
 #### 16. O Corona Vírus chegou na Itália e misteriosamente atingiu pessoas somente com gatos e de 66 anos. Remova esses italianos.
 #### 17. Utilizando o framework agregate, liste apenas as pessoas com nomes iguais a sua respectiva mãe e que tenha gato ou cachorro.
