@@ -277,15 +277,15 @@ db.italians.aggregate([
 
 ```
 ["Alberto", "Alessandra", "Alessandro", "Alessia", "Alessio", "Alex", "Andrea", "Angela", "Angelo", "Anna",
-	"Antonella", "Antonio", "Barbara", "Carlo", "Chiara", "Cinzia", "Claudia", "Claudio", "Cristian", "Cristina",
-	"Daniela", "Daniele", "Dario", "Davide", "Domenico", "Elena", "Eleonora", "Elisa", "Elisabetta", "Emanuela",
-	"Emanuele", "Enrico", "Enzo ", "Fabio", "Fabrizio", "Federica", "Federico", "Filipo", "Gabiele", "Giacomo",
-	"Gianluca", "Gianni", "Giorgia", "Giorgio", "Giovanna", "Giovanni", "Giulia", "Giuseppe", "Giusy", "Ilaria",
-	"Laura", "Lorenzo", "Luca", "Lucia", "Luigi", "Manuela", "Marco", "Maria", "Mario", "Marta",
-	"Martina", "Massimiliano", "Massimo", "Matteo", "Mattia", "Maurizio", "Mauro", "Michela", "Michele", "Mirko",
-	"Monica", "Nicola", "Paola", "Paolo", "Pasquale", "Patrizia", "Pietro", "Raffaele", "Riccardo", "Rita",
-	"Roberta", "Roberto", "Rosa", "Sabrina", "Salvatore", "Sara", "Serena", "Sergio", "Silvia", "Simona",
-	"Simone", "Sonia", "Stefania", "Stefano", "Teresa", "Tiziana", "Valeira", "Valentina", "Veronica", "Vincenzo"]
+"Antonella", "Antonio", "Barbara", "Carlo", "Chiara", "Cinzia", "Claudia", "Claudio", "Cristian", "Cristina",
+"Daniela", "Daniele", "Dario", "Davide", "Domenico", "Elena", "Eleonora", "Elisa", "Elisabetta", "Emanuela",
+"Emanuele", "Enrico", "Enzo ", "Fabio", "Fabrizio", "Federica", "Federico", "Filipo", "Gabiele", "Giacomo",
+"Gianluca", "Gianni", "Giorgia", "Giorgio", "Giovanna", "Giovanni", "Giulia", "Giuseppe", "Giusy", "Ilaria",
+"Laura", "Lorenzo", "Luca", "Lucia", "Luigi", "Manuela", "Marco", "Maria", "Mario", "Marta",
+"Martina", "Massimiliano", "Massimo", "Matteo", "Mattia", "Maurizio", "Mauro", "Michela", "Michele", "Mirko",
+"Monica", "Nicola", "Paola", "Paolo", "Pasquale", "Patrizia", "Pietro", "Raffaele", "Riccardo", "Rita",
+"Roberta", "Roberto", "Rosa", "Sabrina", "Salvatore", "Sara", "Serena", "Sergio", "Silvia", "Simona",
+"Simone", "Sonia", "Stefania", "Stefano", "Teresa", "Tiziana", "Valeira", "Valentina", "Veronica", "Vincenzo"]
 ```
 
 #### 19. Agora faça a mesma lista do item acima, considerando nome completo.
