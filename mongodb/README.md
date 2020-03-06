@@ -273,7 +273,23 @@ db.italians.aggregate([
 ```
 
 #### 18. Utilizando aggregate framework, faça uma lista de nomes única de nomes. Faça isso usando apenas o primeiro nome
+> db.italians.distinct("firstname")
+
+```
+["Alberto", "Alessandra", "Alessandro", "Alessia", "Alessio", "Alex", "Andrea", "Angela", "Angelo", "Anna",
+	"Antonella", "Antonio", "Barbara", "Carlo", "Chiara", "Cinzia", "Claudia", "Claudio", "Cristian", "Cristina",
+	"Daniela", "Daniele", "Dario", "Davide", "Domenico", "Elena", "Eleonora", "Elisa", "Elisabetta", "Emanuela",
+	"Emanuele", "Enrico", "Enzo ", "Fabio", "Fabrizio", "Federica", "Federico", "Filipo", "Gabiele", "Giacomo",
+	"Gianluca", "Gianni", "Giorgia", "Giorgio", "Giovanna", "Giovanni", "Giulia", "Giuseppe", "Giusy", "Ilaria",
+	"Laura", "Lorenzo", "Luca", "Lucia", "Luigi", "Manuela", "Marco", "Maria", "Mario", "Marta",
+	"Martina", "Massimiliano", "Massimo", "Matteo", "Mattia", "Maurizio", "Mauro", "Michela", "Michele", "Mirko",
+	"Monica", "Nicola", "Paola", "Paolo", "Pasquale", "Patrizia", "Pietro", "Raffaele", "Riccardo", "Rita",
+	"Roberta", "Roberto", "Rosa", "Sabrina", "Salvatore", "Sara", "Serena", "Sergio", "Silvia", "Simona",
+	"Simone", "Sonia", "Stefania", "Stefano", "Teresa", "Tiziana", "Valeira", "Valentina", "Veronica", "Vincenzo"]
+```
+
 #### 19. Agora faça a mesma lista do item acima, considerando nome completo.
+
 #### 20. Procure pessoas que gosta de Banana ou Maçã, tenham cachorro ou gato, mais de 20 e menos de 60 anos.
 
 ### 3. Exercício - Stockbrokers
