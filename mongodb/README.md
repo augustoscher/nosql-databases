@@ -191,14 +191,17 @@ Type "it" for more
 ```
 
 #### 13. Crie um italiano que tenha um leão como animal de estimação. Associe um nome e idade ao bichano
-> db.italians.insert({
->   firstname: "Italian",
->   surname: "italian2",
->   username: "Mamamia",
->   email: "italian.mamamia@gmail.com",
->   registerDate: new Date(),
->   lion: {name: "Simba", age: 10}
-> });
+```bash
+db.italians.insert({
+   firstname: "Italian",
+   surname: "italian2",
+   username: "Mamamia",
+   email: "italian.mamamia@gmail.com",
+   registerDate: new Date(),
+   lion: {name: "Simba", age: 10}
+});
+```
+
 ```
 WriteResult({ "nInserted" : 1 })
 ```
@@ -248,6 +251,26 @@ WriteResult({ "nRemoved" : 91 })
 ```
 
 #### 17. Utilizando o framework agregate, liste apenas as pessoas com nomes iguais a sua respectiva mãe e que tenha gato ou cachorro.
+```bash
+db.italians.aggregate([
+   {'$match': { mother: { $exists: 1}}}, 
+   {'$match': { $or: [{ cat: { $exists: true }}, { dog: { $exists: true }}]}}, 
+   {'$project': { "firstname": 1, "mother": 1, "cat": 1, "dog": 1, "isEqual": { "$cmp": ["$firstname","$mother.firstname"]} }},
+   {'$match': {"isEqual": 0}}
+]);
+```
+
+```javascript
+{ "_id" : ObjectId("5e61beefb07851f47a424642"), "firstname" : "Massimiliano", "mother" : { "firstname" : "Massimiliano", "surname" : "Ruggiero", "age" : 46 }, "cat" : { "name" : "Dario", "age" : 10 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef0b07851f47a424764"), "firstname" : "Maurizio", "mother" : { "firstname" : "Maurizio", "surname" : "Conte", "age" : 83 }, "dog" : { "name" : "Emanuele", "age" : 3 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef0b07851f47a42477a"), "firstname" : "Antonella", "mother" : { "firstname" : "Antonella", "surname" : "Ferri", "age" : 27 }, "cat" : { "name" : "Raffaele", "age" : 3 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef1b07851f47a424f18"), "firstname" : "Angelo", "mother" : { "firstname" : "Angelo", "surname" : "De Angelis", "age" : 34 }, "cat" : { "name" : "Stefania", "age" : 11 }, "dog" : { "name" : "Massimo", "age" : 5 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef1b07851f47a424f8f"), "firstname" : "Gianluca", "mother" : { "firstname" : "Gianluca", "surname" : "Conte", "age" : 24 }, "cat" : { "name" : "Emanuela", "age" : 7 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef2b07851f47a425070"), "firstname" : "Emanuela", "mother" : { "firstname" : "Emanuela", "surname" : "Galli", "age" : 23 }, "dog" : { "name" : "Sara", "age" : 18 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef2b07851f47a425433"), "firstname" : "Valentina", "mother" : { "firstname" : "Valentina", "surname" : "Martino", "age" : 31 }, "cat" : { "name" : "Sonia", "age" : 17 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef3b07851f47a425926"), "firstname" : "Dario", "mother" : { "firstname" : "Dario", "surname" : "Riva", "age" : 57 }, "cat" : { "name" : "Federica", "age" : 1 }, "isEqual" : 0 }
+{ "_id" : ObjectId("5e61bef4b07851f47a425c4e"), "firstname" : "Antonio", "mother" : { "firstname" : "Antonio", "surname" : "Bruno", "age" : 109 }, "dog" : { "name" : "Nicola", "age" : 10 }, "isEqual" : 0 }
+```
 
 #### 18. Utilizando aggregate framework, faça uma lista de nomes única de nomes. Faça isso usando apenas o primeiro nome
 #### 19. Agora faça a mesma lista do item acima, considerando nome completo.
