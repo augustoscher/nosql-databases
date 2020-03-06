@@ -273,9 +273,115 @@ db.italians.aggregate([
 ```
 
 #### 18. Utilizando aggregate framework, faça uma lista de nomes única de nomes. Faça isso usando apenas o primeiro nome
+> db.italians.aggregate([{$group: { _id: "$firstname"}}])
+```javascript
+{ "_id" : "Daniele" }
+{ "_id" : "Paolo" }
+{ "_id" : "Fabio" }
+{ "_id" : "Giacomo" }
+{ "_id" : "Gianluca" }
+{ "_id" : "Monica" }
+{ "_id" : "Luca" }
+{ "_id" : "Stefano" }
+{ "_id" : "Giuseppe" }
+{ "_id" : "Carlo" }
+{ "_id" : "Michela" }
+{ "_id" : "Alessio" }
+{ "_id" : "Pasquale" }
+{ "_id" : "Emanuele" }
+{ "_id" : "Roberto" }
+{ "_id" : "Gianni" }
+{ "_id" : "Elisabetta" }
+{ "_id" : "Giovanna" }
+{ "_id" : "Rosa" }
+{ "_id" : "Alessia" }
+{ "_id" : "Maurizio" }
+{ "_id" : "Alessandra" }
+{ "_id" : "Barbara" }
+{ "_id" : "Domenico" }
+{ "_id" : "Rita" }
+{ "_id" : "Simone" }
+{ "_id" : "Matteo" }
+{ "_id" : "Riccardo" }
+{ "_id" : "Mario" }
+{ "_id" : "Gabiele" }
+{ "_id" : "Sabrina" }
+{ "_id" : "Serena" }
+{ "_id" : "Tiziana" }
+{ "_id" : "Enzo " }
+{ "_id" : "Mirko" }
+{ "_id" : "Valeira" }
+{ "_id" : "Sara" }
+{ "_id" : "Dario" }
+{ "_id" : "Claudio" }
+{ "_id" : "Giovanni" }
+{ "_id" : "Filipo" }
+{ "_id" : "Silvia" }
+{ "_id" : "Ilaria" }
+{ "_id" : "Paola" }
+{ "_id" : "Nicola" }
+{ "_id" : "Marta" }
+{ "_id" : "Roberta" }
+{ "_id" : "Emanuela" }
+{ "_id" : "Anna" }
+{ "_id" : "Veronica" }
+{ "_id" : "Luigi" }
+{ "_id" : "Manuela" }
+{ "_id" : "Giorgia" }
+{ "_id" : "Eleonora" }
+{ "_id" : "Michele" }
+{ "_id" : "Elena" }
+{ "_id" : "Mattia" }
+{ "_id" : "Maria" }
+{ "_id" : "Giusy" }
+{ "_id" : "Federico" }
+{ "_id" : "Angela" }
+{ "_id" : "Daniela" }
+{ "_id" : "Fabrizio" }
+{ "_id" : "Vincenzo" }
+{ "_id" : "Marco" }
+{ "_id" : "Patrizia" }
+{ "_id" : "Alberto" }
+{ "_id" : "Sergio" }
+{ "_id" : "Davide" }
+{ "_id" : "Cinzia" }
+{ "_id" : "Antonella" }
+{ "_id" : "Sonia" }
+{ "_id" : "Martina" }
+{ "_id" : "Antonio" }
+{ "_id" : "Stefania" }
+{ "_id" : "Giulia" }
+{ "_id" : "Cristina" }
+{ "_id" : "Elisa" }
+{ "_id" : "Simona" }
+{ "_id" : "Massimo" }
+{ "_id" : "Salvatore" }
+{ "_id" : "Cristian" }
+{ "_id" : "Lorenzo" }
+{ "_id" : "Enrico" }
+{ "_id" : "Angelo" }
+{ "_id" : "Lucia" }
+{ "_id" : "Pietro" }
+{ "_id" : "Andrea" }
+{ "_id" : "Chiara" }
+{ "_id" : "Raffaele" }
+{ "_id" : "Massimiliano" }
+{ "_id" : "Alessandro" }
+{ "_id" : "Federica" }
+{ "_id" : "Alex" }
+{ "_id" : "Teresa" }
+{ "_id" : "Mauro" }
+{ "_id" : "Valentina" }
+{ "_id" : "Claudia" }
+{ "_id" : "Giorgio" }
+{ "_id" : "Laura" }
+```
+
+OR 
+
 > db.italians.distinct("firstname")
 
-```
+```javascript
 ["Alberto", "Alessandra", "Alessandro", "Alessia", "Alessio", "Alex", "Andrea", "Angela", "Angelo", "Anna",
 "Antonella", "Antonio", "Barbara", "Carlo", "Chiara", "Cinzia", "Claudia", "Claudio", "Cristian", "Cristina",
 "Daniela", "Daniele", "Dario", "Davide", "Domenico", "Elena", "Eleonora", "Elisa", "Elisabetta", "Emanuela",
@@ -289,7 +395,12 @@ db.italians.aggregate([
 ```
 
 #### 19. Agora faça a mesma lista do item acima, considerando nome completo.
+> db.italians.aggregate([{"$group": { "_id": { firstname: "$firstname", surname: "$surname" }}}]);
+```
+results in mongodb/exe2-item19.js
+```
 
 #### 20. Procure pessoas que gosta de Banana ou Maçã, tenham cachorro ou gato, mais de 20 e menos de 60 anos.
+
 
 ### 3. Exercício - Stockbrokers
