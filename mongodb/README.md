@@ -415,8 +415,25 @@ db.italians.find({"$and": [
 ### 3. Exercício - Stockbrokers
 
 #### 1. Liste as ações com profit acima de 0.5 (limite a 10 o resultado)
+> db.stocks.find({"Profit Margin": { $gt: 0.5 } }, {"Ticker":1, "Profit Margin":1, "Company":1}).sort({"Profit Margin": -1}).limit(10)
+```javascript
+{ "_id" : ObjectId("52853801bb1177ca391c1af3"), "Ticker" : "BPT", "Profit Margin" : 0.994, "Company" : "BP Prudhoe Bay Royalty Trust" }
+{ "_id" : ObjectId("52853802bb1177ca391c1b69"), "Ticker" : "CACB", "Profit Margin" : 0.994, "Company" : "Cascade Bancorp" }
+{ "_id" : ObjectId("5285380bbb1177ca391c2c3c"), "Ticker" : "ROYT", "Profit Margin" : 0.99, "Company" : "Pacific Coast Oil Trust" }
+{ "_id" : ObjectId("52853808bb1177ca391c281b"), "Ticker" : "NDRO", "Profit Margin" : 0.986, "Company" : "Enduro Royalty Trust" }
+{ "_id" : ObjectId("5285380fbb1177ca391c318e"), "Ticker" : "WHZ", "Profit Margin" : 0.982, "Company" : "Whiting USA Trust II" }
+{ "_id" : ObjectId("52853808bb1177ca391c27bd"), "Ticker" : "MVO", "Profit Margin" : 0.976, "Company" : "MV Oil Trust" }
+{ "_id" : ObjectId("52853801bb1177ca391c1895"), "Ticker" : "AGNC", "Profit Margin" : 0.972, "Company" : "American Capital Agency Corp." }
+{ "_id" : ObjectId("5285380ebb1177ca391c3101"), "Ticker" : "VOC", "Profit Margin" : 0.971, "Company" : "VOC Energy Trust" }
+{ "_id" : ObjectId("52853807bb1177ca391c279a"), "Ticker" : "MTR", "Profit Margin" : 0.97, "Company" : "Mesa Royalty Trust" }
+{ "_id" : ObjectId("52853809bb1177ca391c2946"), "Ticker" : "OLP", "Profit Margin" : 0.97, "Company" : "One Liberty Properties Inc." }
+```
+
 #### 2. Liste as ações com perdas (limite a 10 novamente)
+
+
 #### 3. Liste as 10 ações mais rentáveis
+
 #### 4. Qual foi o setor mais rentável?
 #### 5. Ordene as ações pelo profit e usando um cursor, liste as ações.
 #### 6. Renomeie o campo “Profit Margin” para apenas “profit”.
