@@ -475,6 +475,35 @@ db.italians.find({"$and": [
 ```
 
 #### 5. Ordene as ações pelo profit e usando um cursor, liste as ações.
+Declara cursor fazendo um find, filtrando apenas ações que possuem Profit Margin e projetando Company, Sector e Profit Margin:
+> var cursor = db.stocks.find({"Profit Margin": {$exists: true}}, {"Company": 1, "Sector": 1, "Profit Margin": 1, "_id": 0 })
+
+Ordena o cursor por Profit Margin através do comando sort:
+> cursor = cursor.sort({"Profit Margin": -1})
+
+```javascript
+{ "Profit Margin" : 0.994, "Sector" : "Basic Materials", "Company" : "BP Prudhoe Bay Royalty Trust" }
+{ "Profit Margin" : 0.994, "Sector" : "Financial", "Company" : "Cascade Bancorp" }
+{ "Profit Margin" : 0.99, "Sector" : "Basic Materials", "Company" : "Pacific Coast Oil Trust" }
+{ "Profit Margin" : 0.986, "Sector" : "Basic Materials", "Company" : "Enduro Royalty Trust" }
+{ "Profit Margin" : 0.982, "Sector" : "Basic Materials", "Company" : "Whiting USA Trust II" }
+{ "Profit Margin" : 0.976, "Sector" : "Basic Materials", "Company" : "MV Oil Trust" }
+{ "Profit Margin" : 0.972, "Sector" : "Financial", "Company" : "American Capital Agency Corp." }
+{ "Profit Margin" : 0.971, "Sector" : "Basic Materials", "Company" : "VOC Energy Trust" }
+{ "Profit Margin" : 0.97, "Sector" : "Financial", "Company" : "Mesa Royalty Trust" }
+{ "Profit Margin" : 0.97, "Sector" : "Financial", "Company" : "One Liberty Properties Inc." }
+{ "Profit Margin" : 0.97, "Sector" : "Basic Materials", "Company" : "Permian Basin Royalty Trust" }
+{ "Profit Margin" : 0.969, "Sector" : "Basic Materials", "Company" : "Cross Timbers Royalty Trust" }
+{ "Profit Margin" : 0.967, "Sector" : "Financial", "Company" : "Harvest Capital Credit Corporation" }
+{ "Profit Margin" : 0.966, "Sector" : "Basic Materials", "Company" : "Whiting USA Trust I" }
+{ "Profit Margin" : 0.963, "Sector" : "Financial", "Company" : "Mesabi Trust" }
+{ "Profit Margin" : 0.959, "Sector" : "Financial", "Company" : "Sabine Royalty Trust" }
+{ "Profit Margin" : 0.958, "Sector" : "Financial", "Company" : "North European Oil Royalty Trust" }
+{ "Profit Margin" : 0.933, "Sector" : "Basic Materials", "Company" : "Sandridge Mississippian Trust II" }
+{ "Profit Margin" : 0.93, "Sector" : "Basic Materials", "Company" : "Hugoton Royalty Trust" }
+{ "Profit Margin" : 0.928, "Sector" : "Basic Materials", "Company" : "SandRidge Mississippian Trust I" }
+Type "it" for more
+```
 
 
 #### 6. Renomeie o campo “Profit Margin” para apenas “profit”.
