@@ -41,6 +41,8 @@ a) Copy file to docker container
 
 b) 
 > mongoimport --db stocks --collection stocks --file stock.json
+or
+> mongoimport --host localhost -u admin -p senhaadmin --authenticationDatabase admin --db stocks --collection stocks --file stock.json
 
 
 ### Commands
