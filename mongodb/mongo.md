@@ -24,6 +24,24 @@ Tipos de dados:
 Usado em:
 
 
+### Setup
+
+Starting mongodb container
+> docker start mongodb
+
+Connect on mongodb docker container
+> docker exec -it mongodb bash
+
+Connecting on mongo inside container
+> mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin
+
+Import file on docker container
+a) Copy file to docker container
+> docker cp /home/augusto.scher/git/rep/nosql-databases/mongodb/stock.json mongodb:/stock.json
+
+b) 
+> mongoimport --db stocks --collection stocks --file stock.json
+
 
 ### Commands
 > db.italians.insert({firstname: "Mamamia2", surname: "Mamamia2-surname", username: "userMamamia2", email: "Mamamia1.mamamia2@gmail.com", registerDate: new Date()});
