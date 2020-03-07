@@ -506,6 +506,10 @@ Type "it" for more
 ```
 
 #### 6. Renomeie o campo “Profit Margin” para apenas “profit”.
+> db.stocks.update({"Profit Margin": { $exists: true }}, { $rename: {"Profit Margin": "Profit"}}, {multi: true})
+```
+WriteResult({ "nMatched" : 4301, "nUpserted" : 0, "nModified" : 4301 })
+```
 
 #### 7. Agora liste apenas a empresa e seu respectivo resultado
 #### 8. Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria?
