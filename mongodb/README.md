@@ -505,8 +505,8 @@ Ordena o cursor por Profit Margin através do comando sort:
 Type "it" for more
 ```
 
-
 #### 6. Renomeie o campo “Profit Margin” para apenas “profit”.
+
 #### 7. Agora liste apenas a empresa e seu respectivo resultado
 #### 8. Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria?
 #### 9. Liste as ações agrupadas por setor
