@@ -415,24 +415,49 @@ db.italians.find({"$and": [
 ### 3. Exercício - Stockbrokers
 
 #### 1. Liste as ações com profit acima de 0.5 (limite a 10 o resultado)
-> db.stocks.find({"Profit Margin": { $gt: 0.5 } }, {"Ticker":1, "Profit Margin":1, "Company":1}).sort({"Profit Margin": -1}).limit(10)
+> db.stocks.find({"Profit Margin": { $gt: 0.5 } }, {"Ticker":1, "Profit Margin":1, "Sector":1, "Company":1, "_id":0 }).sort({"Profit Margin": -1}).limit(10)
 ```javascript
-{ "_id" : ObjectId("52853801bb1177ca391c1af3"), "Ticker" : "BPT", "Profit Margin" : 0.994, "Company" : "BP Prudhoe Bay Royalty Trust" }
-{ "_id" : ObjectId("52853802bb1177ca391c1b69"), "Ticker" : "CACB", "Profit Margin" : 0.994, "Company" : "Cascade Bancorp" }
-{ "_id" : ObjectId("5285380bbb1177ca391c2c3c"), "Ticker" : "ROYT", "Profit Margin" : 0.99, "Company" : "Pacific Coast Oil Trust" }
-{ "_id" : ObjectId("52853808bb1177ca391c281b"), "Ticker" : "NDRO", "Profit Margin" : 0.986, "Company" : "Enduro Royalty Trust" }
-{ "_id" : ObjectId("5285380fbb1177ca391c318e"), "Ticker" : "WHZ", "Profit Margin" : 0.982, "Company" : "Whiting USA Trust II" }
-{ "_id" : ObjectId("52853808bb1177ca391c27bd"), "Ticker" : "MVO", "Profit Margin" : 0.976, "Company" : "MV Oil Trust" }
-{ "_id" : ObjectId("52853801bb1177ca391c1895"), "Ticker" : "AGNC", "Profit Margin" : 0.972, "Company" : "American Capital Agency Corp." }
-{ "_id" : ObjectId("5285380ebb1177ca391c3101"), "Ticker" : "VOC", "Profit Margin" : 0.971, "Company" : "VOC Energy Trust" }
-{ "_id" : ObjectId("52853807bb1177ca391c279a"), "Ticker" : "MTR", "Profit Margin" : 0.97, "Company" : "Mesa Royalty Trust" }
-{ "_id" : ObjectId("52853809bb1177ca391c2946"), "Ticker" : "OLP", "Profit Margin" : 0.97, "Company" : "One Liberty Properties Inc." }
+{ "Ticker" : "BPT", "Profit Margin" : 0.994, "Sector" : "Basic Materials", "Company" : "BP Prudhoe Bay Royalty Trust" }
+{ "Ticker" : "CACB", "Profit Margin" : 0.994, "Sector" : "Financial", "Company" : "Cascade Bancorp" }
+{ "Ticker" : "ROYT", "Profit Margin" : 0.99, "Sector" : "Basic Materials", "Company" : "Pacific Coast Oil Trust" }
+{ "Ticker" : "NDRO", "Profit Margin" : 0.986, "Sector" : "Basic Materials", "Company" : "Enduro Royalty Trust" }
+{ "Ticker" : "WHZ", "Profit Margin" : 0.982, "Sector" : "Basic Materials", "Company" : "Whiting USA Trust II" }
+{ "Ticker" : "MVO", "Profit Margin" : 0.976, "Sector" : "Basic Materials", "Company" : "MV Oil Trust" }
+{ "Ticker" : "AGNC", "Profit Margin" : 0.972, "Sector" : "Financial", "Company" : "American Capital Agency Corp." }
+{ "Ticker" : "VOC", "Profit Margin" : 0.971, "Sector" : "Basic Materials", "Company" : "VOC Energy Trust" }
+{ "Ticker" : "MTR", "Profit Margin" : 0.97, "Sector" : "Financial", "Company" : "Mesa Royalty Trust" }
+{ "Ticker" : "OLP", "Profit Margin" : 0.97, "Sector" : "Financial", "Company" : "One Liberty Properties Inc." }
 ```
 
 #### 2. Liste as ações com perdas (limite a 10 novamente)
-
+> db.stocks.find({"Profit Margin": { $lt: 0 } }, {"Ticker":1, "Profit Margin":1, "Sector":1, "Company":1, "_id":0 }).sort({"Profit Margin": 1}).limit(10)
+```javascript
+{ "Ticker" : "EMIS", "Profit Margin" : -266.0417, "Sector" : "Healthcare", "Company" : "Emisphere Technologies, Inc." }
+{ "Ticker" : "CERP", "Profit Margin" : -27.9802, "Sector" : "Basic Materials", "Company" : "Cereplast, Inc." }
+{ "Ticker" : "GNBT", "Profit Margin" : -21.5587, "Sector" : "Healthcare", "Company" : "Generex Biotechnology Corp." }
+{ "Ticker" : "PURE", "Profit Margin" : -11.7596, "Sector" : "Basic Materials", "Company" : "PURE Bioscience, Inc." }
+{ "Ticker" : "MRNA", "Profit Margin" : -11.079, "Sector" : "Healthcare", "Company" : "Marina Biotech, Inc." }
+{ "Ticker" : "APPA", "Profit Margin" : -6.176, "Sector" : "Healthcare", "Company" : "AP Pharma Inc." }
+{ "Ticker" : "AFFY", "Profit Margin" : -4.7349, "Sector" : "Healthcare", "Company" : "Affymax, Inc." }
+{ "Ticker" : "FTBK", "Profit Margin" : -3.3162, "Sector" : "Financial", "Company" : "Frontier Financial Corporation" }
+{ "Ticker" : "CCGM", "Profit Margin" : -3.0824, "Sector" : "Services", "Company" : "China CGame, Inc." }
+{ "Ticker" : "PBIO", "Profit Margin" : -3.0335, "Sector" : "Healthcare", "Company" : "Pressure BioSciences, Inc." }
+```
 
 #### 3. Liste as 10 ações mais rentáveis
+> db.stocks.find({}, {"Ticker":1, "Profit Margin":1, "Company":1, "Sector":1, "_id":0 }).sort({"Profit Margin": -1}).limit(10)
+```javascript
+{ "Ticker" : "BPT", "Profit Margin" : 0.994, "Sector" : "Basic Materials", "Company" : "BP Prudhoe Bay Royalty Trust" }
+{ "Ticker" : "CACB", "Profit Margin" : 0.994, "Sector" : "Financial", "Company" : "Cascade Bancorp" }
+{ "Ticker" : "ROYT", "Profit Margin" : 0.99, "Sector" : "Basic Materials", "Company" : "Pacific Coast Oil Trust" }
+{ "Ticker" : "NDRO", "Profit Margin" : 0.986, "Sector" : "Basic Materials", "Company" : "Enduro Royalty Trust" }
+{ "Ticker" : "WHZ", "Profit Margin" : 0.982, "Sector" : "Basic Materials", "Company" : "Whiting USA Trust II" }
+{ "Ticker" : "MVO", "Profit Margin" : 0.976, "Sector" : "Basic Materials", "Company" : "MV Oil Trust" }
+{ "Ticker" : "AGNC", "Profit Margin" : 0.972, "Sector" : "Financial", "Company" : "American Capital Agency Corp." }
+{ "Ticker" : "VOC", "Profit Margin" : 0.971, "Sector" : "Basic Materials", "Company" : "VOC Energy Trust" }
+{ "Ticker" : "MTR", "Profit Margin" : 0.97, "Sector" : "Financial", "Company" : "Mesa Royalty Trust" }
+{ "Ticker" : "OLP", "Profit Margin" : 0.97, "Sector" : "Financial", "Company" : "One Liberty Properties Inc." }
+```
 
 #### 4. Qual foi o setor mais rentável?
 #### 5. Ordene as ações pelo profit e usando um cursor, liste as ações.
