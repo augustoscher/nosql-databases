@@ -460,7 +460,23 @@ db.italians.find({"$and": [
 ```
 
 #### 4. Qual foi o setor mais rentável?
+> db.stocks.aggregate([{ $group: { _id: "$Sector", Profits: {$sum: "$Profit Margin"} }}, { $sort: { "Profits": -1 }} ])
+
+```javascript
+{ "_id" : "Financial", "Profits" : 162.5356 }
+{ "_id" : "Services", "Profits" : 20.5515 }
+{ "_id" : "Consumer Goods", "Profits" : 13.23 }
+{ "_id" : "Industrial Goods", "Profits" : 11.0327 }
+{ "_id" : "Utilities", "Profits" : 7.423 }
+{ "_id" : "Conglomerates", "Profits" : 0.3835 }
+{ "_id" : "Basic Materials", "Profits" : -9.190900000000001 }
+{ "_id" : "Technology", "Profits" : -18.8968 }
+{ "_id" : "Healthcare", "Profits" : -316.68649999999997 }
+```
+
 #### 5. Ordene as ações pelo profit e usando um cursor, liste as ações.
+
+
 #### 6. Renomeie o campo “Profit Margin” para apenas “profit”.
 #### 7. Agora liste apenas a empresa e seu respectivo resultado
 #### 8. Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria?
