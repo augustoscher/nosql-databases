@@ -512,5 +512,38 @@ WriteResult({ "nMatched" : 4301, "nUpserted" : 0, "nModified" : 4301 })
 ```
 
 #### 7. Agora liste apenas a empresa e seu respectivo resultado
+> db.stocks.find({"Profit": {$exists: true}}, {"Company":1, "Profit": 1, "Profit Margin": 1, "_id": 0}).sort({"Profit": -1})
+```javascript
+{ "Company" : "BP Prudhoe Bay Royalty Trust", "Profit" : 0.994 }
+{ "Company" : "Cascade Bancorp", "Profit" : 0.994 }
+{ "Company" : "Pacific Coast Oil Trust", "Profit" : 0.99 }
+{ "Company" : "Enduro Royalty Trust", "Profit" : 0.986 }
+{ "Company" : "Whiting USA Trust II", "Profit" : 0.982 }
+{ "Company" : "MV Oil Trust", "Profit" : 0.976 }
+{ "Company" : "American Capital Agency Corp.", "Profit" : 0.972 }
+{ "Company" : "VOC Energy Trust", "Profit" : 0.971 }
+{ "Company" : "Mesa Royalty Trust", "Profit" : 0.97 }
+{ "Company" : "One Liberty Properties Inc.", "Profit" : 0.97 }
+{ "Company" : "Permian Basin Royalty Trust", "Profit" : 0.97 }
+{ "Company" : "Cross Timbers Royalty Trust", "Profit" : 0.969 }
+{ "Company" : "Harvest Capital Credit Corporation", "Profit" : 0.967 }
+{ "Company" : "Whiting USA Trust I", "Profit" : 0.966 }
+{ "Company" : "Mesabi Trust", "Profit" : 0.963 }
+{ "Company" : "Sabine Royalty Trust", "Profit" : 0.959 }
+{ "Company" : "North European Oil Royalty Trust", "Profit" : 0.958 }
+{ "Company" : "Sandridge Mississippian Trust II", "Profit" : 0.933 }
+{ "Company" : "Hugoton Royalty Trust", "Profit" : 0.93 }
+{ "Company" : "SandRidge Mississippian Trust I", "Profit" : 0.928 }
+Type "it" for more
+```
+
 #### 8. Analise as ações. É uma bola de cristal na sua mão... Quais as três ações você investiria?
+> db.stocks.find({}, {"Ticker":1, "Profit":1, "Company":1, "Sector":1, "_id":0 }).sort({"Profit": -1}).limit(3)
+
+```javascript
+{ "Ticker" : "BPT", "Sector" : "Basic Materials", "Company" : "BP Prudhoe Bay Royalty Trust", "Profit" : 0.994 }
+{ "Ticker" : "CACB", "Sector" : "Financial", "Company" : "Cascade Bancorp", "Profit" : 0.994 }
+{ "Ticker" : "ROYT", "Sector" : "Basic Materials", "Company" : "Pacific Coast Oil Trust", "Profit" : 0.99 }
+```
+
 #### 9. Liste as ações agrupadas por setor
