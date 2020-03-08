@@ -547,3 +547,29 @@ Type "it" for more
 ```
 
 #### 9. Liste as ações agrupadas por setor
+```
+db.stocks.aggregate([
+   { 
+      $group: {
+         _id: "$Sector",
+         items: { $addToSet: {Company: "$Company", Profit: "$Profit"} }
+      }
+   }
+])
+```
+
+To pretty print:
+```
+var c = db.stocks.aggregate([{$group: {_id: "$Sector", items: { $addToSet: {Company: "$Company", Profit: "$Profit"} }}}])
+
+c.forEach(item => {
+  print();
+  print(JSON.stringify(item));
+})
+```
+ 
+Ex:
+```javascript
+{ "_id" : "Conglomerates", "items" : [ { "Company" : "Lydall Inc.", "Profit" : 0.044 }, { "Company" : "Pingtan Marine Enterprise Ltd.", "Profit" : 0.341 }]}
+{"_id":"Utilities","items":[{"Company":"ForceField Energy Inc."},{"Company":"Questar Corporation","Profit":0.181}]}
+``` 
