@@ -570,6 +570,9 @@ c.forEach(item => {
  
 Ex:
 ```javascript
-{ "_id" : "Conglomerates", "items" : [ { "Company" : "Lydall Inc.", "Profit" : 0.044 }, { "Company" : "Pingtan Marine Enterprise Ltd.", "Profit" : 0.341 }]}
+{"_id":"Financial","items":[{"Company":"PowerShares Dynamic Energy"},{"Company":"First Trust Large Cap Value Opp AlphaDEX"}]}
 {"_id":"Utilities","items":[{"Company":"ForceField Energy Inc."},{"Company":"Questar Corporation","Profit":0.181}]}
+{"_id":"Healthcare","items":[{"Company":"Sarepta Therapeutics, Inc."},{"Company":"Regeneron Pharmaceuticals, Inc.","Profit":0.418}]}
+{"_id":"Industrial Goods","items":[{"Company":"Air Industries Group","Profit":0.04},{"Company":"Donaldson Company, Inc.","Profit":0.101}]}
+{"_id":"Services","items":[{"Company":"Choice Hotels International Inc.","Profit":0.151},{"Company":"SMF Energy Corporation","Profit":-0.124}]}
 ``` 
