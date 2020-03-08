@@ -576,3 +576,9 @@ Ex:
 {"_id":"Industrial Goods","items":[{"Company":"Air Industries Group","Profit":0.04},{"Company":"Donaldson Company, Inc.","Profit":0.101}]}
 {"_id":"Services","items":[{"Company":"Choice Hotels International Inc.","Profit":0.151},{"Company":"SMF Energy Corporation","Profit":-0.124}]}
 ``` 
+
+### 4. Exercício - Fraude na Enron!
+
+#### 1. Liste as pessoas que enviaram e-mails (de forma distinta, ou seja, sem repetir). Quantas pessoas são?
+
+#### 2. Contabilize quantos e-mails tem a palavra “fraud”
