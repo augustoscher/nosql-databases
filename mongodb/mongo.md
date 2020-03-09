@@ -38,11 +38,13 @@ Connecting on mongo inside container
 Import file on docker container
 a) Copy file to docker container
 > docker cp /home/augusto.scher/git/rep/nosql-databases/mongodb/stock.json mongodb:/stock.json
+> docker cp /home/augusto.scher/git/rep/nosql-databases/mongodb/enron.json mongodb:/enron.json
 
 b) 
 > mongoimport --db stocks --collection stocks --file stock.json
 or
 > mongoimport --host localhost -u admin -p senhaadmin --authenticationDatabase admin --db stocks --collection stocks --file stock.json
+> mongoimport --host localhost -u admin -p senhaadmin --authenticationDatabase admin --db enron --collection enron --file enron.json
 
 
 ### Commands
