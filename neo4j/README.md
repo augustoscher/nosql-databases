@@ -98,12 +98,18 @@ Modify the query you just ran so that the headings for the columns of the table 
 
 #### Exercise 4
 ##### 4.1: Retrieve all movies that Tom Cruise acted in.
-> MATCH(p:Person)-[:ACTED_IN]-(m:Movie) WHERE p.name = 'Tom Cruise' RETURN m.title
+```cypher
+MATCH(p:Person)-[:ACTED_IN]-(m:Movie) WHERE p.name = 'Tom Cruise' RETURN m.title
+```
 or
-> MATCH(m:Movie)<-[:ACTED_IN]-(:Person {name: 'Tom Cruise'}) RETURN m.title
+```cypher
+MATCH(m:Movie)<-[:ACTED_IN]-(:Person {name: 'Tom Cruise'}) RETURN m.title
+```
 
 ##### 4.2: Retrieve all people that were born in the 70’s.
-> MATCH(p:Person) WHERE p.born >=1970 AND p.born <=1979 RETURN p.name, p.born ORDER BY p.born
+```cypher
+MATCH(p:Person) WHERE p.born >=1970 AND p.born <=1979 RETURN p.name, p.born ORDER BY p.born
+```
 
 ##### 4.3: Retrieve the actors who acted in the movie The Matrix who were born after 1960.
 ```cypher
