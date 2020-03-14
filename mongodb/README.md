@@ -580,5 +580,10 @@ Ex:
 ### 4. Exercício - Fraude na Enron!
 
 #### 1. Liste as pessoas que enviaram e-mails (de forma distinta, ou seja, sem repetir). Quantas pessoas são?
+> var senders = db.enron.distinct("sender");
+> print(senders.length)
+``` 
+2200
+```
 
 #### 2. Contabilize quantos e-mails tem a palavra “fraud”
