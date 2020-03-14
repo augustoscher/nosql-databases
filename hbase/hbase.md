@@ -38,5 +38,16 @@ Existem 3 modos de execução
 - Psuedo-Distribuited - Um nó apenas que se comorta como se fosse cluster
 - Fully Distribuited - Modo de produção com um cluster de servidores trabalhando em conjunto
 
-  
-  
+É possivel usar Ruby e Java no CLI do HBase
+
+1. Docker pull
+> docker pull dajobe/hbase
+
+2. Running container 
+> docker run --name my-hbase -d dajobe/hbase
+
+3. Executin hbase container
+> docker exec -it my-hbase bash
+
+4. HBase Shell
+> hbase shell
