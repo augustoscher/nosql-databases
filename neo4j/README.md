@@ -111,16 +111,28 @@ or
 > RETURN p.name, p.born ORDER BY p.born
 
 ##### 4.4: Retrieve all movies by testing the node label and a property.
+> MATCH(m) WHERE m:Movie AND m.released = 2000 RETURN m.title
 
-##### 4.5: Retrieve all people that wrote movies by testing the relationship between two nodes.
+##### 4.5: Retrieve all people that wrote movies by testing the relationship between two nodes, returning the names of the people and the titles of the movies.
+> MATCH(p)-[rel]-(m)
+> WHERE p:Person AND m:Movie AND type(rel) = 'WROTE'
+> RETURN p.name, m.title
 
-##### 4.6: Retrieve all people in the graph that do not have a property.
+##### 4.6: Retrieve all people in the graph that do not have a born property, returning their names.
+> MATCH(p:Person) WHERE NOT EXISTS(p.born) RETURN p.name
 
-##### 4.7: Retrieve all people related to movies where the relationship has a property.
+##### 4.7: Retrieve all people related to movies where the relationship has the rating property, then return their name, movie title, and the rating.
+> MATCH(p:Person)-[rel]->(m:Movie)
+> WHERE EXISTS (rel.rating)
+> RETURN p.name, m.title, rel.rating
 
 ##### 4.8: Retrieve all actors whose name begins with James.
+> MATCH(p:Person)-[:ACTED_IN]->(:Movie) WHERE p.name STARTS WITH 'James' RETURN p.name 
 
-##### 4.9: Retrieve all all REVIEW relationships from the graph with filtered results.
+##### 4.9: Retrieve all REVIEWED relationships from the graph where the summary of the review contains the string fun, returning the movie title reviewed and the rating and summary of the relationship.
+> MATCH(:Person)-[rel:REVIEWED]->(m:Movie)
+> WHERE toLower(rel.summary) CONTAINS 'fun'
+> RETURN m.title, rel.rating, rel.summary
 
 ##### 4.10: Retrieve all people who have produced a movie, but have not directed a movie.
 
@@ -129,3 +141,6 @@ or
 ##### 4.12: Retrieve all movies that were released in a set of years.
 
 ##### 4.13: Retrieve the movies that have an actor’s role that is the name of the movie.
+
+
+## Vai até o 12
