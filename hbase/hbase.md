@@ -37,5 +37,6 @@ Existem 3 modos de execução
 - Standalone: Modelo apenas em uma maquina
 - Psuedo-Distribuited - Um nó apenas que se comorta como se fosse cluster
 - Fully Distribuited - Modo de produção com um cluster de servidores trabalhando em conjunto
+
   
   
