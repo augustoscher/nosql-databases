@@ -159,5 +159,27 @@ or
 > RETURN m.title as Movie, p.name as Actor , rel.roles as Role
 
 
+#### Exercise 5
+##### 5.1: Retrieve data using multiple MATCH patterns.
+
+##### 5.2: Retrieve particular nodes that have a relationship.
+
+##### 5.3: Modify the query to retrieve nodes that are exactly three hops away.
+
+##### 5.4: Modify the query to retrieve nodes that are one and two hops away.
+
+##### 5.5: Modify the query to retrieve particular nodes that are connected no matter how many hops are required.
+
+##### 5.6: Specify optional data to be retrieved during the query.
+
+##### 5.7: Retrieve nodes by collecting a list.
+
+##### 5.9: Retrieve nodes as lists and return data associated with the corresponding lists.
+
+##### 5.10: Retrieve nodes and their relationships as lists.
+
+##### 5.11: Retrieve the actors who have acted in exactly five movies.
+
+##### 5.12: Retrieve the movies that have at least 2 directors with other optional data.
 
 ## Vai até o 12
