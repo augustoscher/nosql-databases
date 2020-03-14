@@ -161,18 +161,44 @@ or
 
 #### Exercise 5
 ##### 5.1: Retrieve data using multiple MATCH patterns.
+Write a Cypher query that retrieves all movies that Gene Hackman has acted it, along with the directors of the movies. In addition, retrieve the actors that acted in the same movies as Gene Hackman. Return the name of the movie, the name of the director, and the names of actors that worked with Gene Hackman.
 
-##### 5.2: Retrieve particular nodes that have a relationship.
+> MATCH (a:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(d:Person),
+>      (a2:Person)-[:ACTED_IN]->(m)
+> WHERE a.name = 'Gene Hackman'
+> RETURN m.title as movie, d.name AS director , a2.name AS `co-actors`
+
+##### 5.2: Retrieve all nodes that the person named James Thompson directly has the FOLLOWS relationship in either direction.
+> MATCH (p1:Person)-[:FOLLOWS]-(p2:Person)
+> WHERE p1.name = 'James Thompson'
+> RETURN p1, p2
 
 ##### 5.3: Modify the query to retrieve nodes that are exactly three hops away.
+> MATCH (p1:Person)-[:FOLLOWS*3]-(p2:Person)
+> WHERE p1.name = 'James Thompson'
+> RETURN p1, p2
 
 ##### 5.4: Modify the query to retrieve nodes that are one and two hops away.
+> MATCH (p1:Person)-[:FOLLOWS*1..2]-(p2:Person)
+> WHERE p1.name = 'James Thompson'
+> RETURN p1, p2
 
 ##### 5.5: Modify the query to retrieve particular nodes that are connected no matter how many hops are required.
+> MATCH (p1:Person)-[:FOLLOWS*]-(p2:Person)
+> WHERE p1.name = 'James Thompson'
+> RETURN p1, p2
 
-##### 5.6: Specify optional data to be retrieved during the query.
+##### 5.6: Write a Cypher query to retrieve all people in the graph whose name begins with Tom and optionally retrieve all people named Tom who directed a movie
+> MATCH(p:Person) WHERE p.name STARTS WITH 'Tom'
+> OPTIONAL MATCH(p)-[:DIRECTED]->(m:Movie)
+> RETURN p.name, m.title
 
-##### 5.7: Retrieve nodes by collecting a list.
+##### 5.7: Retrieve actors and the movies they have acted in, returning each actor’s name and the list of movies they acted in.
+> MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+> WITH a, collect(m.title) as movies
+> RETURN a.name, movies
+ or
+> MATCH (p:Person)-[:ACTED_IN]->(m:Movie) RETURN p.name, collect(m.title)
 
 ##### 5.9: Retrieve nodes as lists and return data associated with the corresponding lists.
 
