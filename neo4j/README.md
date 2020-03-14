@@ -1,5 +1,7 @@
 ### Neo4J Exercises
 
+Cypher with Neo4j
+
 #### Exercise 1
 ##### 1.1: Retrieve all nodes from the database
 > MATCH(n) RETURN n
@@ -54,4 +56,15 @@ Modify the query you just ran so that the headings for the columns of the table 
 
 
 #### Exercise 3
-##### 3.1:
+##### 3.1: Display the schema of the database.
+> call db.schema.visualization
+
+##### 3.2: Retrieve all people who wrote the movie Speed Racer.
+> MATCH (p:Person)-[:WROTE]->(:Movie {title: 'Speed Racer'}) RETURN p.name
+
+##### 3.3: Retrieve all movies that are connected to the person, Tom Hanks.
+
+##### 3.4: Retrieve information about the relationships Tom Hanks had with the set of movies retrieved earlier.
+
+##### 3.5: Retrieve information about the roles that Tom Hanks acted in.
+
