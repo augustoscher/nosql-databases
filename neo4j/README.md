@@ -62,9 +62,36 @@ Modify the query you just ran so that the headings for the columns of the table 
 ##### 3.2: Retrieve all people who wrote the movie Speed Racer.
 > MATCH (p:Person)-[:WROTE]->(:Movie {title: 'Speed Racer'}) RETURN p.name
 
+##### Retrieve all people who have written other movies.
+> MATCH (p:Person)-[:WROTE]->(:Movie) RETURN p.name
+
+##### Retrieve people who have acted in a particular movie.
+> MATCH (p:Person)-[:ACTED_IN]->(:Movie{title: 'The Matrix'}) RETURN p.name
+
+##### Retrieve people who have directed a particular movie.
+> MATCH (p:Person)-[:DIRECTED]->(:Movie{title: 'The Matrix'}) RETURN p.name
+
 ##### 3.3: Retrieve all movies that are connected to the person, Tom Hanks.
+> MATCH (m:Movie)<--(:Person {name: 'Tom Hanks'}) RETURN m.title
+
+#### Retrieve all movies connected with another actor.
+> MATCH (m:Movie)<--(:Person {name: 'Keanu Reeves'}) RETURN m.title
+
+#### Retrieve all people connected with a particular movie.
+> MATCH (p:Person)-->(:Movie{title: 'The Matrix'}) RETURN p.name
 
 ##### 3.4: Retrieve information about the relationships Tom Hanks had with the set of movies retrieved earlier.
+> MATCH (m:Movie)-[rel]-(:Person {name: 'Tom Hanks'}) RETURN m.title, type(rel)
+
+##### Retrieve the relationship information about a different actor.
+> MATCH (m:Movie)-[rel]-(:Person {name: 'Keanu Reeves'}) RETURN m.title, type(rel)
 
 ##### 3.5: Retrieve information about the roles that Tom Hanks acted in.
+> MATCH (m:Movie)-[rel:ACTED_IN]-(:Person {name: 'Tom Hanks'}) RETURN m.title, rel.roles
+
+#### Retrieve all roles for a different actor.
+> MATCH (m:Movie)-[rel:ACTED_IN]-(:Person {name: 'Keanu Reeves'}) RETURN m.title, rel.roles
+
+#### Retrieve all roles played for a particular movie.
+> MATCH (m:Movie)-[rel]-(p:Person) WHERE m.title = 'The Matrix' RETURN m.title, p.name, rel.roles
 
