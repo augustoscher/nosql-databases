@@ -51,3 +51,15 @@ Relationships(edges) - Arestas
 
 Grafos são sempre rotulados(label)
 O rotulo é um vertice chamado label que se aplica a um ou mais vértices (nodes)
+
+É um banco que implementa um grafo de propriedades.
+
+
+
+Indice de bancos de dados relacionais usam Arvore B
+Vira um arquivo com a relação da arvore com com o indice balanceado relacionado com a posição do indice da tabela.
+
+- Tudo que é maior que a chave inicial vai para a direita do nó
+- Tudo que é menor que a chave inicial, vai para a esquerda do nó
+
+É muito parecido com a teoria de grafos a indexação no momento da gravação.
