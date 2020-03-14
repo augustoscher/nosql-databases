@@ -210,6 +210,8 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > RETURN m.title as movie, count(p) as numReviews, collect(p.name) as reviewers
 
 ##### 5.10: Retrieve all directors, their movies, and people who acted in the movies, returning the name of the director, the number of actors the director has worked with, and the list of actors.
+> MATCH (d:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(a:Person)
+> RETURN d.name AS director, count(a) AS `actors` , collect(a.name) AS `actors worked`
 
 
 ##### 5.11: Retrieve the actors who have acted in exactly five movies.
