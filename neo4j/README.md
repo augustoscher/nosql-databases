@@ -145,12 +145,19 @@ or
 > WHERE NOT ((a)-[:DIRECTED]->(:Movie))
 > RETURN a.name, m.title
 
+##### 4.11: Retrieve the movies and their actors where one of the actors also directed the movie, returning the actors names, the director’s name, and the movie title.
+> MATCH (p1:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(p2:Person)
+> WHERE EXISTS( (p2)-[:DIRECTED]->(m) )
+> RETURN p1.name as Actor, p2.name as `Actor/Director`, m.title as Movie
 
-##### 4.11: Retrieve the movies and their actors where one of the actors also directed the movie.
+##### 4.12: etrieve all movies that were released in the years 2000, 2004, and 2008, returning their titles and release years.
+> MATCH(m:Movie) WHERE m.released IN [2000, 2004, 2008] RETURN m.title, m.released ORDER BY m.released
 
-##### 4.12: Retrieve all movies that were released in a set of years.
+##### 4.13: Retrieve the movies that have an actor’s role that is the name of the movie, return the movie title and the role.
+> MATCH(m:Movie)<-[rel:ACTED_IN]-(p:Person) 
+> WHERE m.title in rel.roles
+> RETURN m.title as Movie, p.name as Actor , rel.roles as Role
 
-##### 4.13: Retrieve the movies that have an actor’s role that is the name of the movie.
 
 
 ## Vai até o 12
