@@ -54,8 +54,7 @@ O rotulo é um vertice chamado label que se aplica a um ou mais vértices (nodes
 
 É um banco que implementa um grafo de propriedades.
 
-
-
+#### Indice em BD relacional
 Indice de bancos de dados relacionais usam Arvore B
 Vira um arquivo com a relação da arvore com com o indice balanceado relacionado com a posição do indice da tabela.
 
