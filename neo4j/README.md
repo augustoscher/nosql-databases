@@ -200,9 +200,17 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
  or
 > MATCH (p:Person)-[:ACTED_IN]->(m:Movie) RETURN p.name, collect(m.title)
 
-##### 5.9: Retrieve nodes as lists and return data associated with the corresponding lists.
+##### 5.8: Retrieve all movies that Tom Cruise has acted in and the co-actors that acted in the same movie, returning the movie title and the list of co-actors that Tom Cruise worked with
+> MATCH (p:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(p2:Person)
+> WHERE p.name = 'Tom Cruise'
+> RETURN p.name, m.title, collect(p2.name)
+
+##### 5.9: Retrieve all people who reviewed a movie, returning the list of reviewers and how many reviewers reviewed the movie.
+> MATCH (p:Person)-[:REVIEWED]->(m:Movie)
+> RETURN m.title as movie, count(p) as numReviews, collect(p.name) as reviewers
 
 ##### 5.10: Retrieve nodes and their relationships as lists.
+
 
 ##### 5.11: Retrieve the actors who have acted in exactly five movies.
 
