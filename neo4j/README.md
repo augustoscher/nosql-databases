@@ -134,7 +134,17 @@ or
 > WHERE toLower(rel.summary) CONTAINS 'fun'
 > RETURN m.title, rel.rating, rel.summary
 
+##### Retrieve all movies in the database that have love in their tagline and return the movie titles
+> MATCH(m:Movie) WHERE toLower(m.tagline) CONTAINS 'love' RETURN m.title, m.tagline
+
+##### Retrieve movies in the database, specifying a regular expression for the content of the tagline.
+> MATCH(m:Movie) WHERE m.tagline =~ '(?i)speed.*' RETURN m.title, m.tagline
+
 ##### 4.10: Retrieve all people who have produced a movie, but have not directed a movie.
+> MATCH (a:Person)-[:PRODUCED]->(m:Movie)
+> WHERE NOT ((a)-[:DIRECTED]->(:Movie))
+> RETURN a.name, m.title
+
 
 ##### 4.11: Retrieve the movies and their actors where one of the actors also directed the movie.
 

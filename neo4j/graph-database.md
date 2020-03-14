@@ -63,3 +63,7 @@ Vira um arquivo com a relação da arvore com com o indice balanceado relacionad
 
 É muito parecido com a teoria de grafos a indexação no momento da gravação.
 
+#### Instal Neo4j and Exercising
+
+On Neo4j Desktop
+ > :play intro-neo4j-exercises
