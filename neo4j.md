@@ -15,7 +15,6 @@ or
 ##### 1.4: Retrieve all Movie nodes
 > MATCH(m:Movie) RETURN m
 
-
 #### Exercise 2
 ##### 2.1: Retrieve all Movie nodes that have a released property value of 2003.
 > MATCH(m:Movie{released:2003}) RETURN m
@@ -52,3 +51,7 @@ Return other movies in different release year with more prorperties
 ##### 2.6: Display more user-friendly headers in the table.
 Modify the query you just ran so that the headings for the columns of the table returned are more descriptive.
 > MATCH(m:Movie) RETURN m.title as `Movie`, m.tagline as `Tagline`, m.released as `Release Year`
+
+
+#### Exercise 3
+##### 3.1:
