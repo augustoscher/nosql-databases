@@ -20,7 +20,7 @@ Capaz de armazenar uma grande quantidade de dados (terabytes, petabytes) ainda s
 
 Totalmente projetado para “fault tolerance” – ambientes onde problemas com servidores são a norma, não a exceção.
 
-A estratégia usada para essa resiliência se chama “write-ahead-logging”
+A estratégia usada para essa resiliência se chama “write-ahead-logging”  
 • Escreve os dados em um log em memória antes de colocar no disco.  
 • Isso permite a outros nós consultar esses logs em caso de falha com um servidor e não depender do disco  
 • Como é distribuído, os nós podem confiar uns nos outros e não em um “servidor central”  
