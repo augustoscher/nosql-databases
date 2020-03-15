@@ -262,4 +262,16 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > RETURN p.name, movies
 
 
+#### Exercise 7
+##### 7.1: Collect and use lists.
+
+##### 7.2: Collect a list.
+
+##### 7.3: Unwind a list.
+
+##### 7.4: Perform a calculation with the date type.
+
+
+
+
 ## Vai até o 11
