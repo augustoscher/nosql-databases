@@ -228,16 +228,38 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 
 
 #### Exercise 6
-##### 6.1: Execute a query that returns duplicate records.
+##### 6.1: You want to know what actors acted in movies in the decade starting with the year 1990. First write a query to retrieve all actors that acted in movies during the 1990s, where you return the released date, the movie title, and the collected actor names for the movie. For now do not worry about duplication.
+> MATCH(p:Person)-[:ACTED_IN]->(m:Movie)
+> WHERE m.released >=1990 AND m.released <=1999
+> RETURN DISTINCT m.title, m.released, collect(p.name)
 
-##### 6.2: Modify the query to eliminate duplication.
+##### 6.2: The results returned from the previous query include multiple rows for a movie released value. Next, modify the query so that the released date records returned are not duplicated. To implement this, you must add the collection of the movie titles to the results returned.
+> MATCH(p:Person)-[:ACTED_IN]->(m:Movie)
+> WHERE m.released >=1990 AND m.released <=1999
+> RETURN DISTINCT collect(m.title), m.released, collect(p.name)
 
-##### 6.3: Modify the query to eliminate more duplication.
+##### 6.3: The results returned from the previous query returns the collection of movie titles with duplicates. That is because there are multiple actors per released year. Next, modify the query so that there is no duplication of the movies listed for a year.
+> MATCH(p:Person)-[:ACTED_IN]->(m:Movie)
+> WHERE m.released >=1990 AND m.released <=1999
+> RETURN DISTINCT collect(DISTINCT m.title), m.released, collect(p.name)
 
-##### 6.4: Sort results returned.
+##### 6.4: Modify the query that you just wrote to order the results returned so that the more recent years are displayed first.
+> MATCH(p:Person)-[:ACTED_IN]->(m:Movie)
+> WHERE m.released >=1990 AND m.released <=1999
+> RETURN DISTINCT collect(DISTINCT m.title), m.released, collect(p.name)
+> ORDER BY m.released DESC
 
-##### 6.5: Retrieve the top 5 ratings and their associated movies.
+##### 6.5: Retrieve the top 5 ratings and their associated movies, returning the movie title and the rating.
+> MATCH(:Person)-[rel]->(m:Movie)
+> WHERE EXISTS (rel.rating)
+> RETURN m.title, rel.rating
+> ORDER BY rel.rating DESC LIMIT 5
 
-##### 6.6: Retrieve all actors that have not appeared in more than 3 movies.
+##### 6.6: Retrieve all actors that have not appeared in more than 3 movies. Return their names and list of movies.
+> MATCH(p:Person)-[:ACTED_IN]->(m:Movie)
+> WITH p, count(p) as moviesCount, collect(m.title) as movies
+> WHERE moviesCount <= 3
+> RETURN p.name, movies
+
 
 ## Vai até o 11
