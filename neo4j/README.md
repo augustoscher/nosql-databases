@@ -227,4 +227,17 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > RETURN  m.title, collect(d.name) as directors, r.name as reviewers
 
 
+#### Exercise 6
+##### 6.1: Execute a query that returns duplicate records.
+
+##### 6.2: Modify the query to eliminate duplication.
+
+##### 6.3: Modify the query to eliminate more duplication.
+
+##### 6.4: Sort results returned.
+
+##### 6.5: Retrieve the top 5 ratings and their associated movies.
+
+##### 6.6: Retrieve all actors that have not appeared in more than 3 movies.
+
 ## Vai até o 11
