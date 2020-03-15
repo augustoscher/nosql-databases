@@ -5,8 +5,10 @@
 a. personal-data
 b. professional-data
 
+
 #### Exercicio 2
 ##### 2. Importe o arquivo via linha de comando
+
 
 #### Exercicio 3
 ##### 3. Agora execute as seguintes operações:
