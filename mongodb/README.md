@@ -587,3 +587,73 @@ Ex:
 ```
 
 #### 2. Contabilize quantos e-mails tem a palavra “fraud”
+> db.enron.find({ $or: [{ "text": { $regex: ".*fraud.*"} }, { "subject": { $regex: ".*fraud.*"} }]}).count()
+```
+23
+```
+
+> db.enron.find({ $or: [{ "text": { $regex: ".*fraud.*"} }, { "subject": { $regex: ".*fraud.*"} }]}, {"_id": 0, "subject": 1, "sender": 1, "to": 1, "cc": 1 }).limit(6).pretty()
+
+```json
+{
+	"sender" : "wjheilman@worldnet.att.net",
+	"cc" : [ ],
+	"to" : [
+		"kenneth.lay@enron.com"
+	],
+	"subject" : "A dissapointed stockholder"
+}
+{
+	"sender" : "wjheilman@worldnet.att.net",
+	"cc" : [ ],
+	"to" : [
+		"kenneth.lay@enron.com"
+	],
+	"subject" : "Upset stockholder"
+}
+{
+	"sender" : "jeffrey_fountain@bankone.com",
+	"cc" : [ ],
+	"to" : [
+		"kenneth_lay@enron.com",
+		"ken_lay@enron.com",
+		"k_lay@enron.com"
+	],
+	"subject" : "Yesterday's Call: Feedback"
+}
+{
+	"sender" : "jim.schwieger@enron.com",
+	"cc" : [ ],
+	"to" : [
+		"kenneth.lay@enron.com",
+		"boardroom@enron.com"
+	],
+	"subject" : "Financial Disclosure of $1.2 Billion Equity Adjustment"
+}
+{
+	"sender" : "karen.denne@enron.com",
+	"cc" : [ ],
+	"to" : [
+		"steven.kean@enron.com",
+		"mark.palmer@enron.com",
+		"richard.shapiro@enron.com",
+		"james.steffes@enron.com",
+		"jeff.dasovich@enron.com",
+		"susan.mara@enron.com",
+		"sandra.mccubbin@enron.com",
+		"kenneth.lay@enron.com"
+	],
+	"subject" : "SF Gate: Enron's secret bid to save deregulation/PRIVATE MEETING:\r\n Chairman pitches his plan to prominent Californians"
+}
+{
+	"sender" : "wade.cline@enron.com",
+	"cc" : [
+		"stanley.horton@enron.com",
+		"a..hughes@enron.com"
+	],
+	"to" : [
+		"kenneth.lay@enron.com"
+	],
+	"subject" : "Reaction to Ken Lay Letter to Indian Prime Minister"
+}
+``` 
