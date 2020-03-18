@@ -380,6 +380,8 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > MATCH(m:Movie {title: 'The Matrix Reloaded'}) SET m:Action RETURN m
 
 ##### Query the database using different labels for movies.
+> MATCH(m:Action) RETURN m.title
+> MATCH(m:Drama) RETURN m.title
 
 ##### Try adding or updating properties using the JSON-style syntax using = and +=.
 
