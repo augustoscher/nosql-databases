@@ -356,11 +356,33 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > RETURN p
 
 ##### 8.15: Remove the lengthInMinutes property from the movie, Forrest Gump.
+> MATCH(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> SET m.lengthInMinutes = null
+> RETURN m
 
 ##### 8.16: Retrieve the node to confirm that the property has been removed.
+> MATCH(m:Movie {title: 'Forrest Gump'}) RETURN m
 
-##### 8.17: Remove a property from a Person node.
+##### 8.17: Remove the birthPlace property from the person, Robin Wright.
+> MATCH(p:Person)
+> WHERE p.name = 'Robin Wright'
+> REMOVE p.birthPlace
 
 ##### 8.18: Retrieve the node to confirm that the property has been removed.
+> MATCH(p:Person {name: 'Robin Wright'}) RETURN p
+
+#### Exercise 8 - Extras
+##### Add more labels to the Movie nodes to reflect the movie genre (action, drama, etc.).
+
+##### Query the database using different labels for movies.
+
+##### Try adding or updating properties using the JSON-style syntax using = and +=.
+
+##### Add properties to nodes using the JSON-style format where you add all of the properties to the node.
+
+##### Query the database to confirm your additions.
+
+##### Call the Cypher built-in method to retrieve all of the property keys in the graph.
 
 ## Vai até o 11
