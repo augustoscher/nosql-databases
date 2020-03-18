@@ -350,9 +350,12 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WHERE p.name = 'Robin Wright'
 > SET p.born = 1966, p.birthPlace = 'Dallas'
 
-##### 8.14: Retrieve an updated Person node.
+##### 8.14: Retrieve this Person node to confirm that the properties have been properly set.
+> MATCH(p:Person)
+> WHERE p.name = 'Robin Wright'
+> RETURN p
 
-##### 8.15: Remove a property from a Movie node.
+##### 8.15: Remove the lengthInMinutes property from the movie, Forrest Gump.
 
 ##### 8.16: Retrieve the node to confirm that the property has been removed.
 
