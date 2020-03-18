@@ -322,11 +322,22 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > MATCH(p:Female) RETURN p.name
 
 ##### 8.9: We’ve decided to not use the Female label. Remove the Female label from the nodes that have this label.
-> 
+> MATCH(p:Female) REMOVE p:Female
 
 ##### 8.10: View the current schema of the graph.
+> call db.schema.visualization
 
-##### 8.11: Add properties to a movie.
+##### 8.11: Add the following properties to the movie, Forrest Gump:
+- released: 1994
+- tagline: Life is like a box of chocolates…​you never know what you’re gonna get.
+- lengthInMinutes: 142
+
+> MATCH(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> SET m.released = 1994,
+>     m.tagline = 'Life is like a box of chocolates…​you never know what you’re gonna get.', 
+>     m.lengthInMinutes = 142,
+>     m:OlderMovie 
 
 ##### 8.12: Retrieve an OlderMovie node to confirm the label and properties.
 
