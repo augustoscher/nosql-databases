@@ -303,9 +303,14 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > MATCH(p:Person {name: 'Robin Wright'}) RETURN p.name as name
 
 ##### 8.5: Add the label OlderMovie to any Movie node that was released before 2010.
-> 
+> MATCH(m:Movie)
+> WHERE m.released < 2010
+> SET m:OlderMovie
+> RETURN labels(m)
 
-##### 8.6: Retrieve the node using the new label.
+##### 8.6: Retrieve all older movie nodes to test that the label was indeed added to these nodes.
+> MATCH(m:OlderMovie)
+> RETURN m.title, m.released
 
 ##### 8.7: Add the Female label to selected nodes.
 
