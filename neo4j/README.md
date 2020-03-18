@@ -275,7 +275,12 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WHERE SIZE(movies) > 5
 > RETURN DISTINCT a.name, movies
 
-##### 7.3: Unwind a list.
+##### 7.3: Modify the query you just wrote so that before the query processing ends, you unwind the list of movies and then return the name of the actor and the title of the associated movie
+> MATCH(a:Person)-[:ACTED_IN]->(m:Movie)
+> WITH a, collect(DISTINCT m.title) as movies
+> WHERE SIZE(movies) > 5
+> WITH a, movies UNWIND movies as movie
+> RETURN DISTINCT a.name, movie
 
 ##### 7.4: Perform a calculation with the date type.
 
