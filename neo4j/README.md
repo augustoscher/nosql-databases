@@ -340,8 +340,15 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 >     m:OlderMovie 
 
 ##### 8.12: Retrieve an OlderMovie node to confirm the label and properties.
+> MATCH(m:OlderMovie {title: 'Forrest Gump'}) RETURN m
 
-##### 8.13: Add properties to the person, Robin Wright.
+##### 8.13: Add the following properties to the person, Robin Wright:
+- born: 1966
+- birthPlace: Dallas
+
+> MATCH(p:Person)
+> WHERE p.name = 'Robin Wright'
+> SET p.born = 1966, p.birthPlace = 'Dallas'
 
 ##### 8.14: Retrieve an updated Person node.
 
