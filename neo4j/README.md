@@ -269,9 +269,11 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > RETURN DISTINCT m.title, actors, producers
 > ORDER BY actors
 
-
-
-##### 7.2: Collect a list.
+##### 7.2: Write a Cypher query that retrieves all actors that acted in movies, and collects the list of movies for any actor that acted in more than five movies. Return the name of the actor and the list.
+> MATCH(a:Person)-[:ACTED_IN]->(m:Movie)
+> WITH a, collect(DISTINCT m.title) as movies
+> WHERE SIZE(movies) > 5
+> RETURN DISTINCT a.name, movies
 
 ##### 7.3: Unwind a list.
 
