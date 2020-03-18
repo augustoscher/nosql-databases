@@ -390,5 +390,6 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 ##### Query the database to confirm your additions.
 
 ##### Call the Cypher built-in method to retrieve all of the property keys in the graph.
+> call db.propertyKeys
 
 ## Vai até o 11
