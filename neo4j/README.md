@@ -374,6 +374,9 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 
 #### Exercise 8 - Extras
 ##### Add more labels to the Movie nodes to reflect the movie genre (action, drama, etc.).
+> MATCH(m:Movie {title: 'Forrest Gump'}) 
+> SET m:Drama
+> RETURN m
 
 ##### Query the database using different labels for movies.
 
