@@ -288,4 +288,43 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > RETURN DISTINCT a.name, m.title, m.released as `release year`, date().year - m.released as `years of release`,
 > m.released - > a.born as `actor age`
 
+
+#### Exercise 8
+##### 8.1: Create a Movie node for the movie with the title, Forrest Gump.
+> CREATE (:Movie {title: 'Forrest Gump'})
+
+##### 8.2: Retrieve the newly-created node.
+
+##### 8.3: Create a Person node.
+
+##### 8.4: Retrieve the newly-created node.
+
+##### 8.5: Add a label to a node.
+
+##### 8.6: Retrieve the node using the new label.
+
+##### 8.7: Add the Female label to selected nodes.
+
+##### 8.8: Retrieve all Female nodes.
+
+##### 8.9: Remove the Female label from the nodes that have this label.
+
+##### 8.10: View the current schema of the graph.
+
+##### 8.11: Add properties to a movie.
+
+##### 8.12: Retrieve an OlderMovie node to confirm the label and properties.
+
+##### 8.13: Add properties to the person, Robin Wright.
+
+##### 8.14: Retrieve an updated Person node.
+
+##### 8.15: Remove a property from a Movie node.
+
+##### 8.16: Retrieve the node to confirm that the property has been removed.
+
+##### 8.17: Remove a property from a Person node.
+
+##### 8.18: Retrieve the node to confirm that the property has been removed.
+
 ## Vai até o 11
