@@ -293,13 +293,17 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 ##### 8.1: Create a Movie node for the movie with the title, Forrest Gump.
 > CREATE (:Movie {title: 'Forrest Gump'})
 
-##### 8.2: Retrieve the newly-created node.
+##### 8.2: Retrieve the node you just created by its title.
+> MATCH(m:Movie {title: 'Forrest Gump'}) RETURN m.title as title
 
-##### 8.3: Create a Person node.
+##### 8.3: Create a Person node for the person with the name, Robin Wright.
+> CREATE(:Person {name: 'Robin Wright'})
 
-##### 8.4: Retrieve the newly-created node.
+##### 8.4: Retrieve the Person node you just created by its name.
+> MATCH(p:Person {name: 'Robin Wright'}) RETURN p.name as name
 
-##### 8.5: Add a label to a node.
+##### 8.5: Add the label OlderMovie to any Movie node that was released before 2010.
+> 
 
 ##### 8.6: Retrieve the node using the new label.
 
