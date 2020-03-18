@@ -282,9 +282,10 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WITH a, movies UNWIND movies as movie
 > RETURN DISTINCT a.name, movie
 
-##### 7.4: Perform a calculation with the date type.
-
-
-
+##### 7.4: Write a query that retrieves all movies that Tom Hanks acted in, returning the title of the movie, the year the movie was released, the number of years ago that the movie was released, and the age of Tom when the movie was released.
+> MATCH(a:Person)-[:ACTED_IN]->(m:Movie)
+> WHERE a.name = 'Tom Hanks'
+> RETURN DISTINCT a.name, m.title, m.released as `release year`, date().year - m.released as `years of release`,
+> m.released - > a.born as `actor age`
 
 ## Vai até o 11
