@@ -312,11 +312,17 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > MATCH(m:OlderMovie)
 > RETURN m.title, m.released
 
-##### 8.7: Add the Female label to selected nodes.
+##### 8.7: Add the label Female to all Person nodes that has a person whose name starts with Robin.
+> MATCH(p:Person)
+> WHERE p.name STARTS WITH 'Robin'
+> SET p:Female
+> RETURN labels(p)
 
 ##### 8.8: Retrieve all Female nodes.
+> MATCH(p:Female) RETURN p.name
 
-##### 8.9: Remove the Female label from the nodes that have this label.
+##### 8.9: We’ve decided to not use the Female label. Remove the Female label from the nodes that have this label.
+> 
 
 ##### 8.10: View the current schema of the graph.
 
