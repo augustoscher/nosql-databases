@@ -384,10 +384,22 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > MATCH(m:Drama) RETURN m.title
 
 ##### Try adding or updating properties using the JSON-style syntax using = and +=.
+> MATCH(m:Movie) WHERE m.title = 'Forrest Gump' SET m += {popularity: 90}
+> MATCH(m:Movie) WHERE m.title = 'The Matrix' SET m += {popularity: 80}
 
 ##### Add properties to nodes using the JSON-style format where you add all of the properties to the node.
+> MATCH(m:Movie) WHERE m.title = 'The Matrix Reloaded' SET m += {popularity: 80, budget: 55000000 }
 
 ##### Query the database to confirm your additions.
+> MATCH(m:Movie) WHERE m.title = 'The Matrix' RETURN m
+```
+{
+  "tagline": "Welcome to the Real World",
+  "title": "The Matrix",
+  "released": 1999,
+  "popularity": 80
+}
+```
 
 ##### Call the Cypher built-in method to retrieve all of the property keys in the graph.
 > call db.propertyKeys
