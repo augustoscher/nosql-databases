@@ -391,17 +391,46 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > MATCH(m:Movie) WHERE m.title = 'The Matrix Reloaded' SET m += {popularity: 80, budget: 55000000 }
 
 ##### Query the database to confirm your additions.
-> MATCH(m:Movie) WHERE m.title = 'The Matrix' RETURN m
+> MATCH(m:Movie) WHERE m.title = 'The Matrix Reloaded' RETURN m
 ```
 {
-  "tagline": "Welcome to the Real World",
-  "title": "The Matrix",
-  "released": 1999,
-  "popularity": 80
+  "tagline": "Free your mind",
+  "title": "The Matrix Reloaded",
+  "released": 2003,
+  "popularity": 80,
+  "budget": 55000000
 }
 ```
 
 ##### Call the Cypher built-in method to retrieve all of the property keys in the graph.
 > call db.propertyKeys
+
+#### Exercise 9
+##### 9.1: Create ACTED_IN relationships.
+
+##### 9.2: Create DIRECTED relationships.
+
+##### 9.3: Create a HELPED relationship.
+
+##### 9.4: Query nodes and new relationships.
+
+##### 9.5: Add properties to relationships.
+
+##### 9.6: Add a property to the HELPED relationship.
+
+##### 9.7: View the current list of property keys in the graph.
+
+##### 9.8: View the current schema of the graph.
+
+##### 9.9: Retrieve the names and roles for actors.
+
+##### 9.10: Retrieve information about any specific relationships.
+
+##### 9.11: Modify a property of a relationship.
+
+##### 9.12: Remove a property from a relationship.
+
+##### 9.13: Confirm that your modifications were made to the graph.
+
 
 ## Vai até o 11
