@@ -406,9 +406,19 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > call db.propertyKeys
 
 #### Exercise 9
-##### 9.1: Create ACTED_IN relationships.
+##### 9.1: Create the ACTED_IN relationship between the actors, Robin Wright, Tom Hanks, and Gary Sinise and the movie, Forrest Gump.
+> MATCH (m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> MATCH (p:Person)
+> WHERE p.name IN ['Tom Hanks','Robin Wright','Gary Sinise']
+> CREATE (p)-[:ACTED_IN]->(m)
 
-##### 9.2: Create DIRECTED relationships.
+##### 9.2: Create the DIRECTED relationship between Robert Zemeckis and the movie, Forrest Gump.
+> MATCH (m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> MATCH (p:Person)
+> WHERE p.name = 'Robert Zemeckis'
+> CREATE (p)-[:DIRECTED]->(m)
 
 ##### 9.3: Create a HELPED relationship.
 
