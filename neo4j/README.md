@@ -481,4 +481,18 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WHERE p1.name = 'Tom Hanks' AND p2.name = 'Gary Sinise'
 > SET rel += {research: 'war history'}
 
+
+#### Exercise 10
+##### 10.1: Delete a relationship.
+
+##### 10.2: Confirm that the relationship has been deleted.
+
+##### 10.3: Retrieve a movie and all of its relationships.
+
+##### 10.4: Try deleting a node without detaching its relationships.
+
+##### 10.5: Delete a Movie node, along with its relationships.
+
+##### 10.6: Confirm that the Movie node has been deleted.
+
 ## Vai até o 11

@@ -6,12 +6,10 @@ a. personal-data
 b. professional-data
 
 
-#### Exercicio 2
-##### 2. Importe o arquivo via linha de comando
+#### Exercicio 2 - Importe o arquivo via linha de comando
 
 
-#### Exercicio 3
-##### 3. Agora execute as seguintes operações:
+#### Exercicio 3 - Agora execute as seguintes operações:
 
 ##### 1. Adicione mais 2 italianos mantendo adicionando informações como data de nascimento nas informações pessoais e um atributo de anos de experiência nas informações profissionais;
 
