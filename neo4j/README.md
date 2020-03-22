@@ -467,8 +467,18 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > SET rel.roles =['Lt. Dan Taylor']
 
 ##### 9.12: Remove the research property from the HELPED relationship from Tom Hanks to Gary Sinise.
+> MATCH (p1:Person)-[rel:HELPED]->(p2:Person)
+> WHERE p1.name = 'Tom Hanks' AND p2.name = 'Gary Sinise'
+> REMOVE rel.research
 
-##### 9.13: Confirm that your modifications were made to the graph.
+##### 9.13: Query the graph to confirm that your modifications were made to the graph.
+> MATCH (p:Person)-[rel:ACTED_IN]->(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> RETURN p, rel, m
 
+##### 9.14: Try adding or updating properties using the JSON-style syntax using = and +=.
+> MATCH (p1:Person)-[rel:HELPED]->(p2:Person)
+> WHERE p1.name = 'Tom Hanks' AND p2.name = 'Gary Sinise'
+> SET rel += {research: 'war history'}
 
 ## Vai até o 11
