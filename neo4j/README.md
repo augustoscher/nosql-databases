@@ -494,9 +494,14 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WHERE m.title = 'Forrest Gump'
 > RETURN p, rel, m
 
-##### 10.4: Try deleting a node without detaching its relationships.
+##### 10.4: Try deleting the Forrest Gump node without detaching its relationships.
+> MATCH(m:Movie) WHERE m.title = 'Forrest Gump' DELETE m
+```
+Cannot delete node<180>, because it still has relationships. To delete this node, you must first delete its relationships.
+```
 
-##### 10.5: Delete a Movie node, along with its relationships.
+##### 10.5: Delete Forrest Gump, along with its relationships in the graph.
+> 
 
 ##### 10.6: Confirm that the Movie node has been deleted.
 
