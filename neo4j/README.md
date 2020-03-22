@@ -442,13 +442,19 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 >  WHEN 'Gary Sinise' THEN ['Lieutenant Dan Taylor']
 > END
 
-##### 9.6: Add a property to the HELPED relationship.
+##### 9.6: Add a new property, research to the HELPED relationship between Tom Hanks and Gary Sinise and set this property’s value to war history.
+> MATCH (p1:Person)-[rel:HELPED]->(p2:Person)
+> WHERE p1.name = 'Tom Hanks' AND p2.name = 'Gary Sinise'
+> SET rel.research = 'war history'
 
 ##### 9.7: View the current list of property keys in the graph.
+> call call db.propertyKeys
 
 ##### 9.8: View the current schema of the graph.
+> call db.schema.visualization
 
-##### 9.9: Retrieve the names and roles for actors.
+##### 9.9: Query the graph to return the names and roles of actors in the movie, Forrest Gump.
+> 
 
 ##### 9.10: Retrieve information about any specific relationships.
 
