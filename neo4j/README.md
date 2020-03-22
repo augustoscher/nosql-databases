@@ -573,8 +573,14 @@ Pq o comando abaixo retorna diferentes?
 > DETACH DELETE m
 Obs: Node não tem relationship. O Detach é só pra ter certeza.
 
-##### 11.13: Use MERGE to create the DIRECTED relationship.
+##### 11.13: Use MERGE to create the DIRECTED relationship between Robert Zemeckis and the Movie, Forrest Gump.
+> MATCH (p:Person {name: 'Robert Zemeckis'}), (m:Movie {title: 'Forrest Gump'})
+> MERGE (p)-[:DIRECTED]->(m)
 
-##### 11.14: Use MERGE to create the ACTED_IN relationship.
+##### 11.14: Use MERGE to create the ACTED_IN relationship between the actors, Tom Hanks, Gary Sinise, and Robin Wright and the Movie, Forrest Gump.
+> MATCH (p:Person), (m:Movie)
+> WHERE m.title = 'Forrest Gump' AND p.name IN ['Tom Hanks', 'Gary Sinise', 'Robin Wright']
+> MERGE (p)-[:ACTED_IN]->(m)
+
 
 ##### 11.15: Modify the role relationship property.
