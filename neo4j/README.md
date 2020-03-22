@@ -522,9 +522,16 @@ Cannot delete node<180>, because it still has relationships. To delete this node
 > ON MATCH SET m.tagline = "Life is like a box of chocolates...you never know what you're gonna get."
 > RETURN m
 
-##### 11.3: Use MERGE to create a Production node.
+##### 11.3: Use MERGE to create (ON CREATE) a node of type Production with the title property, Forrest Gump. If created, set the property year to the value 1994.
+> MERGE (p:Production {title: 'Forrest Gump'})
+> ON CREATE SET p.year = 1994
+> RETURN p
 
-##### 11.4: Find all labels for nodes with a property value.
+##### 11.4: Query the graph to find labels for nodes with the title property, Forrest Gump.
+> MATCH (m) WHERE m.title = 'Forrest Gump' RETURN  labels(m)
+
+Pq o comando abaixo retorna diferentes?
+> MATCH(m:Movie {title: 'Forrest Gump'}) RETURN labels(m)
 
 ##### 11.5: Use MERGE to update a Production node.
 
