@@ -483,11 +483,16 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 
 
 #### Exercise 10
-##### 10.1: Delete a relationship.
+##### 10.1: Delete the HELPED relationship from the graph.
+> MATCH (:Person)-[rel:HELPED]-(:Person) DELETE rel
 
-##### 10.2: Confirm that the relationship has been deleted.
+##### 10.2: Query the graph to confirm that the relationship no longer exists.
+> MATCH (p1:Person)-[rel:HELPED]-(p2:Person) RETURN p1.name, rel, p2.name
 
-##### 10.3: Retrieve a movie and all of its relationships.
+##### 10.3: Query the graph to display Forrest Gump and all of its relationships.
+> MATCH (p:Person)-[rel]-(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> RETURN p, rel, m
 
 ##### 10.4: Try deleting a node without detaching its relationships.
 
