@@ -461,9 +461,12 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 ##### 9.10: Query the graph to retrieve information about any HELPED relationships.
 > MATCH (p1:Person)-[rel:HELPED]-(p2:Person) RETURN p1.name, rel, p2.name
 
-##### 9.11: Modify a property of a relationship.
+##### 9.11: Modify the role that Gary Sinise played in the movie, Forrest Gump from Lieutenant Dan Taylor to Lt. Dan Taylor.
+> MATCH (p:Person)-[rel:ACTED_IN]->(m:Movie)
+> WHERE m.title = 'Forrest Gump' AND p.name = 'Gary Sinise'
+> SET rel.roles =['Lt. Dan Taylor']
 
-##### 9.12: Remove a property from a relationship.
+##### 9.12: Remove the research property from the HELPED relationship from Tom Hanks to Gary Sinise.
 
 ##### 9.13: Confirm that your modifications were made to the graph.
 
