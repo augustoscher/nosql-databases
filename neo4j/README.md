@@ -425,7 +425,7 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WHERE p1.name = 'Tom Hanks'
 > MATCH (p2:Person)
 > WHERE p2.name = 'Gary Sinise'
-> CREATE (p1)-[:HELPED]->(P2)
+> CREATE (p1)-[:HELPED]->(p2)
 
 ##### 9.4: Write a Cypher query to return all nodes connected to the movie, Forrest Gump, along with their relationships.
 > MATCH(p:Person)-[rel]-(m:Movie)
@@ -454,9 +454,12 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > call db.schema.visualization
 
 ##### 9.9: Query the graph to return the names and roles of actors in the movie, Forrest Gump.
-> 
+> MATCH(p:Person)-[rel:ACTED_IN]->(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> RETURN p.name, collect(DISTINCT rel.roles)
 
-##### 9.10: Retrieve information about any specific relationships.
+##### 9.10: Query the graph to retrieve information about any HELPED relationships.
+> MATCH (p1:Person)-[rel:HELPED]-(p2:Person) RETURN p1.name, rel, p2.name
 
 ##### 9.11: Modify a property of a relationship.
 
