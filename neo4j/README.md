@@ -553,12 +553,25 @@ Pq o comando abaixo retorna diferentes?
 ```
 
 ##### 11.9: Find the correct Person node to delete.
+> MATCH (p:Person {name: 'Robert Zemeckis'})-[rel]-(x)
+> WHERE NOT EXISTS (p.born)
+> RETURN p, rel, x
 
 ##### 11.10: Delete this Person node, along with its relationships.
+> MATCH (p:Person {name: 'Robert Zemeckis'})--(x)
+> WHERE NOT EXISTS (p.born)
+> DETACH DELETE p
 
-##### 11.11: Find the correct Forrest Gump node to delete.
+##### 11.11: Find the correct Forrest Gump node to delete by executing this statement:
+> MATCH (m)
+> WHERE m.title = 'Forrest Gump' AND labels(m) = []
+> RETURN m, labels(m)
 
-##### 11.12: Delete the Forrest Gump node.
+##### 11.12: Delete this Forrest Gump node.
+> MATCH (m)
+> WHERE m.title = 'Forrest Gump' AND labels(m) = []
+> DETACH DELETE m
+Obs: Node não tem relationship. O Detach é só pra ter certeza.
 
 ##### 11.13: Use MERGE to create the DIRECTED relationship.
 
