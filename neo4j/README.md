@@ -432,7 +432,15 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > WHERE m.title='Forrest Gump'
 > RETURN p, rel, m
 
-##### 9.5: Add properties to relationships.
+##### 9.5: Add the roles property to the three ACTED_IN relationships that you just created to the movie, Forrest Gump using this information: Tom Hanks played the role, Forrest Gump. Robin Wright played the role, Jenny Curran. Gary Sinise played the role, Lieutenant Dan Taylor.
+> MATCH (p:Person)-[rel:ACTED_IN]->(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> SET rel.roles =
+> CASE p.name
+>  WHEN 'Tom Hanks' THEN ['Forrest Gump']
+>  WHEN 'Robin Wright' THEN ['Jenny Curran']
+>  WHEN 'Gary Sinise' THEN ['Lieutenant Dan Taylor']
+> END
 
 ##### 9.6: Add a property to the HELPED relationship.
 
