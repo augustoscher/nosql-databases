@@ -501,8 +501,14 @@ Cannot delete node<180>, because it still has relationships. To delete this node
 ```
 
 ##### 10.5: Delete Forrest Gump, along with its relationships in the graph.
-> 
+> MATCH (m:Movie) WHERE m.title = 'Forrest Gump'
+> DETACH DELETE m
 
 ##### 10.6: Confirm that the Movie node has been deleted.
+> MATCH (p:Person)-[rel]-(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> RETURN p, rel, m
+
+
 
 ## Vai até o 11
