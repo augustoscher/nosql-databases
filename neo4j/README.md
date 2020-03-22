@@ -582,5 +582,16 @@ Obs: Node não tem relationship. O Detach é só pra ter certeza.
 > WHERE m.title = 'Forrest Gump' AND p.name IN ['Tom Hanks', 'Gary Sinise', 'Robin Wright']
 > MERGE (p)-[:ACTED_IN]->(m)
 
+##### 11.15: Modify the relationship property, role for their roles in Forrest Gump:
+- Tom Hanks is Forrest Gump
+- Gary Sinise is Lt. Dan Taylor
+- Robin Wright is Jenny Curran
 
-##### 11.15: Modify the role relationship property.
+> MATCH (p:Person)-[rel:ACTED_IN]->(m:Movie)
+> WHERE m.title = 'Forrest Gump'
+> SET rel.roles =
+> CASE p.name
+>  WHEN 'Tom Hanks' THEN ['Forrest Gump']
+>  WHEN 'Robin Wright' THEN ['Jenny Curran']
+>  WHEN 'Gary Sinise' THEN ['Lt. Dan Taylor']
+> END
