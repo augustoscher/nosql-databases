@@ -510,5 +510,40 @@ Cannot delete node<180>, because it still has relationships. To delete this node
 > RETURN p, rel, m
 
 
+#### Exercise 11
+##### 11.1: Use MERGE to create (ON CREATE) a node of type Movie with the title property, Forrest Gump. If created, set the released property to 1994.
+> MERGE (m:Movie {title: 'Forrest Gump'})
+> ON CREATE SET m.released = 1994
+> RETURN m
 
-## Vai até o 11
+##### 11.2: Use MERGE to update (ON MATCH) a node of type Movie with the title property, Forrest Gump. If found, set the tagline property to "Life is like a box of chocolates…​you never know what you’re gonna get."
+> MERGE (m:Movie {title: 'Forrest Gump'})
+> ON CREATE SET m.released = 1994
+> ON MATCH SET m.tagline = "Life is like a box of chocolates...you never know what you're gonna get."
+> RETURN m
+
+##### 11.3: Use MERGE to create a Production node.
+
+##### 11.4: Find all labels for nodes with a property value.
+
+##### 11.5: Use MERGE to update a Production node.
+
+##### 11.6: Use MERGE to add a label to a node.
+
+##### 11.7: Use MERGE to create two nodes and a single relationship.
+
+##### 11.8: Use the same MERGE statement to attempt to create two nodes and a single relationship.
+
+##### 11.9: Find the correct Person node to delete.
+
+##### 11.10: Delete this Person node, along with its relationships.
+
+##### 11.11: Find the correct Forrest Gump node to delete.
+
+##### 11.12: Delete the Forrest Gump node.
+
+##### 11.13: Use MERGE to create the DIRECTED relationship.
+
+##### 11.14: Use MERGE to create the ACTED_IN relationship.
+
+##### 11.15: Modify the role relationship property.
