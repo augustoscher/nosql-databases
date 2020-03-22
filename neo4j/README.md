@@ -421,7 +421,11 @@ Write a Cypher query that retrieves all movies that Gene Hackman has acted it, a
 > CREATE (p)-[:DIRECTED]->(m)
 
 ##### 9.3: Create a new relationship, HELPED from Tom Hanks to Gary Sinise.
-> 
+> MATCH (p1:Person)
+> WHERE p1.name = 'Tom Hanks'
+> MATCH (p2:Person)
+> WHERE p2.name = 'Gary Sinise'
+> CREATE (p1)-[:HELPED]->(P2)
 
 ##### 9.4: Query nodes and new relationships.
 
