@@ -533,13 +533,24 @@ Cannot delete node<180>, because it still has relationships. To delete this node
 Pq o comando abaixo retorna diferentes?
 > MATCH(m:Movie {title: 'Forrest Gump'}) RETURN labels(m)
 
-##### 11.5: Use MERGE to update a Production node.
+##### 11.5: Use MERGE to update (ON MATCH) the existing Production node for Forrest Gump to add the company property with a value of Paramount Pictures.
+> MERGE (p:Production {title: 'Forrest Gump'})
+> ON MATCH SET p.company = 'Paramount Pictures'
+> RETURN p
 
-##### 11.6: Use MERGE to add a label to a node.
+##### 11.6: Use MERGE to add the OlderMovie label to the movie, Forrest Gump.
+> MERGE (m:Movie {title: 'Forrest Gump'})
+> ON MATCH SET m:OlderMovie
+> RETURN labels(m)
 
-##### 11.7: Use MERGE to create two nodes and a single relationship.
+##### 11.7: Execute the following Cypher statement that uses MERGE to create two nodes and a single relationship
+> MERGE (p:Person {name: 'Robert Zemeckis'})-[:DIRECTED]->(m {title: 'Forrest Gump'})
 
 ##### 11.8: Use the same MERGE statement to attempt to create two nodes and a single relationship.
+> MERGE (p:Person {name: 'Robert Zemeckis'})-[:DIRECTED]->(m {title: 'Forrest Gump'})
+```
+(no changes, no records)
+```
 
 ##### 11.9: Find the correct Person node to delete.
 
