@@ -4,15 +4,25 @@
 ##### 1. Crie a tabela com 2 famílias de colunas:
 - personal-data  
 - professional-data  
+
+Firt, enter on hbase shell and create table:
+> hbase shell
 > create 'italians', 'personal-data', 'professional-data'
+
 ```
 hbase(main):006:0* create 'italians', 'personal-data', 'professional-data'
 Created table italians
-Took 1.1534 seconds                                                                                                    
+Took 1.1534 seconds
 => Hbase::Table - italians
 ```
 
 #### Exercicio 2 - Importe o arquivo via linha de comando
+Exit hbase shell, copy file to docker container and run
+> exit
+> docker cp /home/augusto.scher/git/rep/nosql-databases/hbase/italians.txt my-hbase:/italians.txt
+> hbase shell italians.txt
+
+you can also generate .sh file and import it.
 
 
 #### Exercicio 3 - Agora execute as seguintes operações:

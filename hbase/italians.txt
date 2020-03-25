@@ -2,6 +2,7 @@ put 'italians', '1', 'personal-data:name',  'Paolo Sorrentino'
 put 'italians', '1', 'personal-data:city',  'Verona'
 put 'italians', '1', 'professional-data:role',  'Gestao Comercial'
 put 'italians', '1', 'professional-data:salary',  '2394'
+
 put 'italians', '2', 'personal-data:name',  'Domenico Barbieri'
 put 'italians', '2', 'personal-data:city',  'Padua'
 put 'italians', '2', 'professional-data:role',  'Psicopedagogia'
