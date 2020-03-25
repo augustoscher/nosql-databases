@@ -4,7 +4,12 @@
 ##### 1. Crie a tabela com 2 famílias de colunas:
 a. personal-data
 b. professional-data
-
+```
+hbase(main):006:0* create 'italians', 'personal-data', 'professional-data'
+Created table italians
+Took 1.1534 seconds                                                                                                    
+=> Hbase::Table - italians
+```
 
 #### Exercicio 2 - Importe o arquivo via linha de comando
 
