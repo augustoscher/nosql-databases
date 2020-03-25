@@ -2,8 +2,9 @@
 
 #### Exercicio 1
 ##### 1. Crie a tabela com 2 famílias de colunas:
-a. personal-data
-b. professional-data
+- personal-data  
+- professional-data  
+> create 'italians', 'personal-data', 'professional-data'
 ```
 hbase(main):006:0* create 'italians', 'personal-data', 'professional-data'
 Created table italians
