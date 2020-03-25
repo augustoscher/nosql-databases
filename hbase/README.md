@@ -23,7 +23,10 @@ Exit hbase shell, copy file to docker container and run
 > hbase shell italians.txt
 
 you can also generate .sh file and import it.
-
+> exit
+> docker cp /home/augusto.scher/git/rep/nosql-databases/hbase/italians.sh my-hbase:/italians.sh
+> chmod +x italians.sh
+> hbase shell ./italians.sh
 
 #### Exercicio 3 - Agora execute as seguintes operações:
 
