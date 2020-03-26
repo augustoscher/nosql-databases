@@ -16,7 +16,8 @@ Took 1.1534 seconds
 => Hbase::Table - italians
 ```
 
-#### Exercicio 2 - Importe o arquivo via linha de comando
+#### Exercicio 2
+##### 1. Importe o arquivo via linha de comando
 Exit hbase shell, copy file to docker container and run
 > exit
 > docker cp /home/augusto.scher/git/rep/nosql-databases/hbase/italians.txt my-hbase:/italians.txt
@@ -28,9 +29,23 @@ you can also generate .sh file and import it.
 > chmod +x italians.sh
 > hbase shell ./italians.sh
 
-#### Exercicio 3 - Agora execute as seguintes operações:
-
+#### Exercicio 3
 ##### 1. Adicione mais 2 italianos mantendo adicionando informações como data de nascimento nas informações pessoais e um atributo de anos de experiência nas informações profissionais;
+``` 
+put 'italians', '11', 'personal-data:name',  'My 11 Italian'
+put 'italians', '11', 'personal-data:city',  'Milan'
+put 'italians', '11', 'personal-data:birth_date',  '4/2/1981'
+put 'italians', '11', 'professional-data:role',  'Comunicacao Institucional'
+put 'italians', '11', 'professional-data:salary',  '9470'
+put 'italians', '11', 'professional-data:experience_years',  '2'
+
+put 'italians', '12', 'personal-data:name',  'My 12 Italian'
+put 'italians', '12', 'personal-data:city',  'Turim'
+put 'italians', '12', 'personal-data:birth_date',  '4/2/1991'
+put 'italians', '12', 'professional-data:role',  'Software'
+put 'italians', '12', 'professional-data:salary',  '10000'
+put 'italians', '12', 'professional-data:experience_years',  '8'
+``` 
 
 ##### 2. Adicione o controle de 5 versões na tabela de dados pessoais.
 
