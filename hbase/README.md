@@ -48,8 +48,18 @@ put 'italians', '12', 'professional-data:experience_years',  '8'
 ``` 
 
 ##### 2. Adicione o controle de 5 versões na tabela de dados pessoais.
+```
+alter 'italians', NAME => 'personal-data', VERSIONS => 5
+``` 
 
 ##### 3. Faça 5 alterações em um dos italianos;
+```
+put 'italians',’12’,'personal-data:name','Batman'
+put 'italians',’12’,'personal-data:city','Gothan'
+put 'italians',’12’,'personal-data:bloo_type','A+'
+put 'italians',’12’,'professional-data:salary',  '11000'
+put 'italians','12', 'professional-data:experience_years',  '9'
+```
 
 ##### 4. Com o operador get, verifique como o HBase armazenou o histórico.
 
