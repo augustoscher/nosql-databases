@@ -1,4 +1,4 @@
-# HBASE
+# HBase
 
 Banco de dados open source orientado a coluna
 
