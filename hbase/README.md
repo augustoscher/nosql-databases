@@ -49,19 +49,33 @@ put 'italians', '12', 'professional-data:experience_years',  '8'
 
 ##### 2. Adicione o controle de 5 versões na tabela de dados pessoais.
 ```
+disable 'italians'
 alter 'italians', NAME => 'personal-data', VERSIONS => 5
+enable 'italians'
 ``` 
 
 ##### 3. Faça 5 alterações em um dos italianos;
 ```
-put 'italians',’12’,'personal-data:name','Batman'
-put 'italians',’12’,'personal-data:city','Gothan'
-put 'italians',’12’,'personal-data:bloo_type','A+'
-put 'italians',’12’,'professional-data:salary',  '11000'
-put 'italians','12', 'professional-data:experience_years',  '9'
+put 'italians','12','personal-data:name','Batman'
+put 'italians','12','personal-data:city','Gothan'
+put 'italians','12','personal-data:bloo_type','A+'
+put 'italians','12','professional-data:salary', '11000'
+put 'italians','12','professional-data:experience_years', '9'
 ```
 
 ##### 4. Com o operador get, verifique como o HBase armazenou o histórico.
+```
+get 'italians', '12',{COLUMN => 'personal-data', VERSIONS => 2}
+```
+  
+```
+personal-data:birth_date              timestamp=1585269463924, value=4/2/1991                              
+personal-data:bloo_type               timestamp=1585270122585, value=A+                                    
+personal-data:city                    timestamp=1585270122544, value=Gothan                                
+personal-data:city                    timestamp=1585269463887, value=Turim                                 
+personal-data:name                    timestamp=1585270122478, value=Batman                                
+personal-data:name                    timestamp=1585269463870, value=My 12 Italian 
+```
 
 ##### 5. Utilize o scan para mostrar apenas o nome e profissão dos italianos.
 
