@@ -52,7 +52,7 @@ Running container:
 
 > docker run --name my-hbase -d dajobe/hbase
 
-Executin hbase container:
+Executing hbase container:
 
 > docker exec -it my-hbase bash
 
