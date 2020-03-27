@@ -1,4 +1,4 @@
-## HBASE 
+# HBASE
 
 Banco de dados open source orientado a coluna
 
@@ -9,7 +9,8 @@ Nasceu do Google BigTable e foi renomeado para HBase
 Escreve em um HDFS (Haddop File System), que é um sistema de arquivo distribuído.
 Capaz de armazenar uma grande quantidade de dados (terabytes, petabytes) ainda ser performático
 
-#### Características
+## Características
+
 • Low latency operations  
 • Desempenho “constante” para random read e write operations  
 • Armazenamento de grandes quantidades de dados em tabelas  
@@ -25,29 +26,36 @@ A estratégia usada para essa resiliência se chama “write-ahead-logging”
 • Isso permite a outros nós consultar esses logs em caso de falha com um servidor e não depender do disco  
 • Como é distribuído, os nós podem confiar uns nos outros e não em um “servidor central”  
 
-#### Limitações
+## Limitações
+
 • Não possibilita a execução de comandos SQL ou joins tradicionais para fácil relacionamento dentre entidades  
 • É um banco que utiliza muitos recursos computacionais como memória, CPU e disco de forma distribuída  
 • Para entregar mais, precisa ser combinado com elementos adicionais como Hive, Drill e Phoenix  
 • Complexo de gerenciar e de configurar  
 • Tem limitações quanto à flexibilidade do modelo schemaless  
 
-#### Instalação e Configuração
+## Instalação e Configuração
+
 Existem 3 modos de execução
+
 - Standalone: Modelo apenas em uma maquina  
 - Psuedo-Distribuited - Um nó apenas que se comorta como se fosse cluster  
 - Fully Distribuited - Modo de produção com um cluster de servidores trabalhando em conjunto  
 
 É possivel usar Ruby e Java no CLI do HBase
 
-1. Docker pull
+Docker pull:
+
 > docker pull dajobe/hbase
 
-2. Running container 
+Running container:
+
 > docker run --name my-hbase -d dajobe/hbase
 
-3. Executin hbase container
+Executin hbase container:
+
 > docker exec -it my-hbase bash
 
-4. HBase Shell
+HBase Shell:
+
 > hbase shell
