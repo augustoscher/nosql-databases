@@ -65,28 +65,38 @@ put 'italians','12','professional-data:experience_years', '9'
 > get 'italians', '12',{COLUMN => 'personal-data', VERSIONS => 2}  
 
 ```
-personal-data:birth_date              timestamp=1585269463924, value=4/2/1991                              
-personal-data:bloo_type               timestamp=1585270122585, value=A+                                    
-personal-data:city                    timestamp=1585270122544, value=Gothan                                
-personal-data:city                    timestamp=1585269463887, value=Turim                                 
-personal-data:name                    timestamp=1585270122478, value=Batman                                
-personal-data:name                    timestamp=1585269463870, value=My 12 Italian 
+personal-data:birth_date              timestamp=1585269463924, value=4/2/1991
+personal-data:bloo_type               timestamp=1585270122585, value=A+
+personal-data:city                    timestamp=1585270122544, value=Gothan
+personal-data:city                    timestamp=1585269463887, value=Turim
+personal-data:name                    timestamp=1585270122478, value=Batman
+personal-data:name                    timestamp=1585269463870, value=My 12 Italian
 ```
 
 ##### 5. Utilize o scan para mostrar apenas o nome e profissão dos italianos.
 > scan 'italians', {COLUMNS => ['personal-data:name', 'professional-data:role']}
 
 ##### 6. Apague os italianos com row id ímpar
-```
-deleteall 'italians', '1'
-deleteall 'italians', '3'
-deleteall 'italians', '5'
-deleteall 'italians', '7'
-deleteall 'italians', '9'
-deleteall 'italians', '11'
-```
+> deleteall 'italians', '1'  
+> deleteall 'italians', '3'  
+> deleteall 'italians', '5'  
+> deleteall 'italians', '7'  
+> deleteall 'italians', '9'  
+> deleteall 'italians', '11'  
+
 
 ##### 7. Crie um contador de idade 55 para o italiano de row id 5
-
+> put 'italians', '5', 'personal-data:name', 'Super Man'  
+> incr 'italians', '5', 'personal-data:age', 55  
+> get_counter 'italians', '5', 'personal-data:age'
+```
+COUNTER VALUE = 55
+Took 0.0236 seconds 
+```
 
 ##### 8. Incremente a idade do italiano em 1
+> incr 'italians', '5', 'personal-data:age', 1  
+```
+COUNTER VALUE = 56
+Took 0.0252 seconds 
+```
