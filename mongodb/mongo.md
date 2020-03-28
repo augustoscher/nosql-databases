@@ -46,6 +46,16 @@ or
 > mongoimport --host localhost -u admin -p senhaadmin --authenticationDatabase admin --db stocks --collection stocks --file stock.json
 > mongoimport --host localhost -u admin -p senhaadmin --authenticationDatabase admin --db enron --collection enron --file enron.json
 
+### Management
+#### Drop some collection:
+Use your db of collection who will be removed
+> use website
+
+Verify if your collection is there
+> show collections 
+
+Delete: It will remove collection personalInfo from website db.
+> db.personalInfo.drop()
 
 ### Commands
 > db.italians.insert({firstname: "Mamamia2", surname: "Mamamia2-surname", username: "userMamamia2", email: "Mamamia1.mamamia2@gmail.com", registerDate: new Date()});
@@ -55,7 +65,6 @@ or
 > db.italians.find({"mother.age": 81}).count();
 
 > db.italians.remove({"mother.age": 81})
-
 
 > db.italians.insert({firstname: "Mamamia9", email: "Mamamia9.mamamia@gmail.com", registerDate: new Date(), age: 40, friends: "friends", enemies: "enemies"});
 
