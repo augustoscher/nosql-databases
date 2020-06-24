@@ -3,7 +3,7 @@
 Banco de dados open source orientado a coluna
 
 Topografia: Familia de Colunas
-Outros bancos: Facebook Cassandra, AWS DynamoDB, Google BigTable
+Outros bancos: Facebook Cassandra, AWS DynamoDB, Google BigTable, Google BigQuery
 Nasceu do Google BigTable e foi renomeado para HBase
 
 Escreve em um HDFS (Haddop File System), que é um sistema de arquivo distribuído.
