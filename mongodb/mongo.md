@@ -79,7 +79,7 @@ Delete: It will remove collection personalInfo from website db.
 > db.italians.update({}, {"$inc": { "age": 1 }}, {"multi": true});
 
 #### Push item inside array of document
-> db.italians.update({"_id": ObjectId("5e5aa7f771cd3d6a94e8b54c")}, { $push: { "favFruits": "Morango"}});
+> db.italians.update({"_id": ObjectId("5e5aa7f771cd3d6a94e8b54c")}, { $push: { "favFruits": "Morango"}});  
 > db.italians.update({"_id": ObjectId("5e5aa7f771cd3d6a94e8b54c")}, { $push: { "top10": { $each: ["test", "test2"]} }});
 
 #### Get timestamp of document
